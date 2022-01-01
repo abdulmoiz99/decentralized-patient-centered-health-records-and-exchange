@@ -16,7 +16,6 @@ contract Hospital {
     mapping(uint => structHospital) public Hospitals;
 
 
-    constructor () public{
-
+    constructor () {
     }
 }

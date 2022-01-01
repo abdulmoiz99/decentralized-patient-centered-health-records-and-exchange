@@ -14,6 +14,8 @@ contract User {
 
     mapping(uint => structUser) public Users;
    
-    constructor () public{
+    constructor () {
     }
+    
+
 }
