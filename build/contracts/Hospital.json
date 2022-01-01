@@ -3193,12 +3193,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x9b85555129A44568851051B071e122E12E0C6790",
-      "transactionHash": "0x5f56caf31a3e2dbf1dec3ba918a197fce7f7afa4614f5b54dc4273b9f43aa538"
+      "address": "0xC7Cee33B720451A58dEFe8A14bec94C169a8Ed30",
+      "transactionHash": "0x8488bc6c1ffe50d7d1214288c1cc747140c3813ad1d6fc3843954407ca97d917"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-01T09:25:59.862Z",
+  "updatedAt": "2022-01-01T09:49:00.007Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

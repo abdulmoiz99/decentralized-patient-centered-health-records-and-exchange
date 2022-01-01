@@ -18,6 +18,7 @@ contract User {
     uint public usersCount = 0;
     
     constructor () {
+        //For testing purpose only 
         usersCount ++;
         Users[usersCount] = structUser(usersCount,1,"Abdul Moiz","Abdul","123", true, 0);
     }
@@ -46,10 +47,6 @@ contract User {
         {
             return false;
         }
-    }
-    function UserCount() public view returns (uint)
-    {
-        return usersCount;
     }
     function checkUsername(string memory _username) public view  returns (bool)
     {
