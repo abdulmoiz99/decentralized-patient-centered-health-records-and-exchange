@@ -5,7 +5,7 @@ contract Doctor {
     struct structDoctor {
         uint id;
         string name;
-        string hospitalId;
+        uint hospitalId;
         string position;
         string speciality;
         string qualification;
@@ -17,7 +17,15 @@ contract Doctor {
 
     mapping(uint => structDoctor) public Doctors;
 
-    constructor () public{
+    constructor () {   }
 
+    //Hold doctor count
+    uint public doctorsCount;
+
+     function addDoctor (string memory _name, uint _hospitalId, string memory _position, 
+                         string memory _speciality, string memory _qualification, string memory _email, 
+                         string memory _phoneNumber, string memory _gender) private {
+        doctorsCount ++;
+        Doctors[doctorsCount] = structDoctor(doctorsCount, _name,_hospitalId,_position,_speciality,_qualification,_email,_phoneNumber,_gender);
     }
 }

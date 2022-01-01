@@ -11,7 +11,7 @@ contract Role {
 
     mapping(uint => structRole) public Roles;
    
-    constructor () public{
+    constructor () {
         
     }
 }

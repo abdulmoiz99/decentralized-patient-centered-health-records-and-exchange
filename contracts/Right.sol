@@ -15,6 +15,6 @@ contract Right {
 
     mapping(uint => structRight ) public Rights;
    
-    constructor () public{
+    constructor () {
     }
 }
