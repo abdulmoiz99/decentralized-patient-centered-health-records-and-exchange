@@ -58,7 +58,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Rights\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"roleId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"formName\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"add\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"edit\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"remove\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"display\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"print\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Right.sol\":\"Right\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Right.sol\":{\"keccak256\":\"0xc442727b633abfbc25d2fd641373518b67708c72201aeefed0cb4b6c89e2990f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ef0113b7c3b43fd6ab56feb9eb474da856b692cb717e76dc2133cdbe65da3e3b\",\"dweb:/ipfs/QmTJJrmKrmoDcJD8FZoYFdTEED4maPMtJPhWDoDCYdznfF\"]}},\"version\":1}",
@@ -3030,12 +3031,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x184224F6dD8EFECEA10317D74B3AC3d90766C35b",
-      "transactionHash": "0x6d06f8cf8360beb43db21fab9ad52656317f174205fab494560416b16119cb2f"
+      "address": "0x663E53488f18A9D5C49b6320f5d62418AFC92920",
+      "transactionHash": "0xe9b10232ac5f9199beed0107d09282a158f57e43e7b9c60bfe0d6671f6501f55"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-01T09:04:51.245Z",
+  "updatedAt": "2022-01-01T09:25:59.850Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

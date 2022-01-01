@@ -38,7 +38,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Roles\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dateCreated\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Role.sol\":\"Role\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Role.sol\":{\"keccak256\":\"0x560284b11dad0b6721ed686ee2fc57877f357698badb692e0b3ba87648a3d4f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b01029f2410a161a2bc6d0f639fa507c0353dc2d8a61a0a22e0317152ec15a6\",\"dweb:/ipfs/QmbZ7775je4e7jrcfoFUaknhbtwVt4fq5u5FGJ5mS11cBQ\"]}},\"version\":1}",
@@ -2598,12 +2599,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xD3Bacae64BBCD659766c2268937A7f40db46c0bd",
-      "transactionHash": "0x520265262fbc2985bdcc74e4bb7c9169e600a7bc658e0e003279daf4dcd27a1d"
+      "address": "0x65667F7fAD8a01b32DC3bC4Fe76aeb4a9E58087D",
+      "transactionHash": "0x75708b97fd8de64bd92f9e7091559ebb7993310da9c8b9d742cac1f7e16826c4"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-01T09:04:51.256Z",
+  "updatedAt": "2022-01-01T09:25:59.848Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

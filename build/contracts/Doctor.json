@@ -63,7 +63,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -76,7 +77,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Doctors\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"hospitalId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"position\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"speciality\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"qualification\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"gender\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"doctorsCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Doctor.sol\":\"Doctor\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Doctor.sol\":{\"keccak256\":\"0x458d058b15e6886056795af751a40955a0644c4e6718f2ffa73043901675ab49\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5e16cc806ac8799905cfeabd9349d27001a3fc3523700549ae70f633c33a544d\",\"dweb:/ipfs/QmNTHEAHSoqgsfCbJ3UgmuZ3ExrUAZBVnqHfMhkT9FVvXT\"]}},\"version\":1}",
@@ -4507,12 +4509,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x35f259F20FC15978bfE80A81d784db26c48B6aa1",
-      "transactionHash": "0xfc87f63191221c6cb9ad1fba79c08c9a3a11a0a1a108c0367130c1f6207833f1"
+      "address": "0x0D54cc41120E2c0B7D8E4C8FBEc5361d19d98fd5",
+      "transactionHash": "0x95616f0431037d4ad78054150482463758a518c1ecf9092c5973d22a485acf80"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-01T09:04:51.227Z",
+  "updatedAt": "2022-01-01T09:25:59.867Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

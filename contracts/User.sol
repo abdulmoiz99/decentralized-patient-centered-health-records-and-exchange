@@ -15,9 +15,11 @@ contract User {
 
     mapping(uint => structUser) public Users;
     //Holds user count 
-    uint public usersCount;
+    uint public usersCount = 0;
     
     constructor () {
+        usersCount ++;
+        Users[usersCount] = structUser(usersCount,1,"Abdul Moiz","Abdul","123", true, 0);
     }
     // user login function
     function login(string memory _username, string memory _password)  public view returns (bool)
@@ -32,7 +34,6 @@ contract User {
         }
         return false;
     }
-
     function createUser(string memory _username, string memory _password) public returns (bool)
     {
         if(!checkUsername(_username))
@@ -46,7 +47,11 @@ contract User {
             return false;
         }
     }
-    function checkUsername(string memory _username) private view  returns (bool)
+    function UserCount() public view returns (uint)
+    {
+        return usersCount;
+    }
+    function checkUsername(string memory _username) public view  returns (bool)
     {
         for(uint i = 0; i < usersCount; i++){
 
@@ -57,5 +62,4 @@ contract User {
         }
         return false;
     }
-
 }

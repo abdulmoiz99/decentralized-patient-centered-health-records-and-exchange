@@ -58,7 +58,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Hospitals\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"location\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"city\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"state\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"postalCode\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"country\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Hospital.sol\":\"Hospital\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Hospital.sol\":{\"keccak256\":\"0xe9029771fab130f3d816ff5b2e8020f53ed6d9143d46be64205070ab7c918af1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://67489f28bd9e30c9aced027626d7f1f86d811003d3e33740096ec6811eb24499\",\"dweb:/ipfs/QmX5CGVuhSpxUyaJdb6p4QMe7BTgMWbWi9VwTbbuNStDQM\"]}},\"version\":1}",
@@ -3192,12 +3193,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x0ec5adE9a3E597de377b988cDa27E8FA39F25F01",
-      "transactionHash": "0xaf9db1ab84756e5052b1f86add6c97c467a5af9f32dbd019850ec41075b18ac6"
+      "address": "0x9b85555129A44568851051B071e122E12E0C6790",
+      "transactionHash": "0x5f56caf31a3e2dbf1dec3ba918a197fce7f7afa4614f5b54dc4273b9f43aa538"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-01T09:04:51.233Z",
+  "updatedAt": "2022-01-01T09:25:59.862Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

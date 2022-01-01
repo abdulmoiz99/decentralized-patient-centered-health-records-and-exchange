@@ -1,5 +1,5 @@
 {
-  "name": "eth-todo-list",
+  "name": "decentralized-patient-centered-health-records-and-exchange",
   "version": "1.0.0",
   "description": "Blockchain Todo List Powered By Ethereum",
   "main": "truffle-config.js",
