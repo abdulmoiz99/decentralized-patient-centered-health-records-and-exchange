@@ -33,6 +33,8 @@ contract Hospital {
     function CreateHospital(string memory _name, string memory _location, string memory _city, string memory _state, 
                             string memory _postalCode, string memory _country, string memory _phoneNumber)  public  returns (bool)
     {
+
+        
        if(!checkHospital(_name))
        {
            hospitalCount ++;

@@ -66,3 +66,7 @@
   text-decoration: none;
 }
 
+::-ms-input-placeholder {
+  color: #2E83F2;
+}
+
