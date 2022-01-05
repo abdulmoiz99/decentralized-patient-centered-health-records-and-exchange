@@ -19,8 +19,8 @@ contract User {
     
     constructor () {
         //For testing purpose only 
-        usersCount ++;
         Users[usersCount] = structUser(usersCount,1,"Abdul Moiz","Abdul","123", true, 0);
+        usersCount ++;
     }
     // user login function
     function login(string memory _username, string memory _password)  public view returns (bool)
@@ -39,8 +39,8 @@ contract User {
     {
         if(!checkUsername(_username))
         {
-            usersCount ++;
             Users[usersCount] = structUser(usersCount,1,"Abdul Moiz",_username,_password, true, 0);
+            usersCount ++;
             return true;
         }
         else 
