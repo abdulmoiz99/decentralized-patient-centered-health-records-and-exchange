@@ -45,14 +45,14 @@ App = {
       var fullName = $('#fullName').val();
       var dateOfBirth = $('#dateOfBirth').val();
       var CNIC = $('#CNIC').val();
-      var hospitalId = $('#hospitalId').val(); // needs to update the hospital id in the final version
+      var hospitalId = 1;// $('#hospitalId').val(); // needs to update the hospital id in the final version
       var PhoneNo = $('#PhoneNo').val();
       var email = $('#email').val();
       var status = $('#status').val();
       var gender = $('#gender').val();
 
       App.contracts.Patient.deployed().then(function(instance) {
-        return instance. AddPatient(fullName, dateOfBirth, CNIC, 1, PhoneNo, email, status,gender, {from: App.account});
+        return instance. AddPatient(fullName, dateOfBirth, CNIC, hospitalId, PhoneNo, email, status,gender, {from: App.account});
       }).then(function(result) {
         if(result)
         {
