@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>decentralized-patient-centered-health-records-and-exchange</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background: #359AF2;margin-bottom: 20px;">
+        <div class="container">
+            <div class="logo" style="text-align: center;margin-right: 25px;"><i class="fa fa-heartbeat" style="font-size: 25px;color: rgb(255,255,255);text-align: left;margin-left: 0px;margin-right: 5px;"></i><label class="form-label" style="color: rgb(255,255,255);font-size: 25px;margin-left: 5px;">MyApp</label></div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-dashboard d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link active" href="#" style="color: #ffffff;text-shadow: 0px 0px 2px;margin-left: 10px;">Dashboard</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fas fa-hospital d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" style="color: #ffffff;margin-left: 10px;" href="hospitals_view.html">Hospitals</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-user-plus d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" style="color: #ffffff;margin-left: 10px;" href="patients_view.html">Patients</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-users d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" href="roles.html" style="color: #ffffff;margin-left: 10px;">Roles</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-gear d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" href="user_input.html" style="color: #ffffff;margin-left: 10px;">Settings</a></li>
+                </ul>
+                <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="text-decoration: none;color: #ffffff;">Abdul Moiz</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card shadow border-start-primary py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col me-2">
+                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>NODES Connected</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span>10</span></div>
+                            </div>
+                            <div class="col-auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-node-plus-fill fa-2x text-gray-300">
+                                    <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"></path>
+                                </svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card shadow border-start-success py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col me-2">
+                                <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Blocks APPENDED</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span>53</span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-cubes fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card shadow border-start-info py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col me-2">
+                                <div class="text-uppercase text-info fw-bold text-xs mb-1"><span>Todos completed</span></div>
+                                <div class="row g-0 align-items-center">
+                                    <div class="col-auto">
+                                        <div class="text-dark fw-bold h5 mb-0 me-3"><span>50%</span></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="visually-hidden">50%</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-4">
+                <div class="card shadow border-start-warning py-2">
+                    <div class="card-body">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col me-2">
+                                <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>Transactions processed</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span>18</span></div>
+                            </div>
+                            <div class="col-auto"><i class="fas fa-exchange-alt fa-2x text-gray-300"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7 col-xl-8">
+                <div class="card shadow mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Appointments Scheduled</h6>
+                        <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                            <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Appointments&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;72&quot;,&quot;121&quot;,&quot;247&quot;,&quot;273&quot;,&quot;480&quot;,&quot;560&quot;,&quot;340&quot;,&quot;788&quot;,&quot;&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-xl-4">
+                <div class="card shadow mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold m-0">Patients Status</h6>
+                        <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                            <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Healthy&quot;,&quot;Sick&quot;,&quot;Recovered&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                        <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Healthy</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Sick</span><span class="me-2"><i class="fas fa-circle text-info"></i>&nbsp;Recovered</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="text-primary fw-bold m-0">Cases</h6>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="small fw-bold">COVID-19<span class="float-end">35%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-warning" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%;"><span class="visually-hidden">35%</span></div>
+                        </div>
+                        <h4 class="small fw-bold">Influenza<span class="float-end">27%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width: 27%;"><span class="visually-hidden">27%</span></div>
+                        </div>
+                        <h4 class="small fw-bold">Allergies<span class="float-end">25%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"><span class="visually-hidden">25%</span></div>
+                        </div>
+                        <h4 class="small fw-bold">Diarrhea<span class="float-end">11%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" aria-valuenow="11" aria-valuemin="0" aria-valuemax="100" style="width: 11%;"><span class="visually-hidden">11%</span></div>
+                        </div>
+                        <h4 class="small fw-bold">Scurvy<span class="float-end">2%</span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-secondary" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;"><span class="visually-hidden">2%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="text-primary d-inline fw-bold m-0">Todo List</h6><input class="d-inline float-end" type="text" id="address" placeholder="Press Enter to add Todo" name="todo">
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col me-2">
+                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span class="text-xs">10:30 AM</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1"></label></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col me-2">
+                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span class="text-xs">11:30 AM</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2"></label></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row align-items-center no-gutters">
+                                <div class="col me-2">
+                                    <h6 class="mb-0"><strong>Lunch meeting</strong></h6><span class="text-xs">12:30 AM</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3"></label></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-primary text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Critical</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-success text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Success</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-info text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Common</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-warning text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Warning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-danger text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Danger</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card textwhite bg-secondary text-white shadow">
+                            <div class="card-body">
+                                <p class="m-0">Rare</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/chart.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

@@ -20,12 +20,16 @@
             <p class="text-center" style="color: #0F2440;">Sign in to start your session.</p>
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"></div>
-            <div class="mb-3"><input id = "username" class="border rounded-pill form-control" type="text" name="username" placeholder="Username" style="background: linear-gradient(0deg, rgb(252,252,252), white), rgb(255,255,255);border-bottom-color: rgb(0,0,0);">
+            <div class="mb-3"><input id = "username" class="border rounded-pill form-control" type="text" name="username" placeholder="Username" style="background: linear-gradient(0deg, rgb(252,252,252), white), rgb(255,255,255);border-bottom-color: rgb(0,0,0);" required ="">
                 <p class="text-start" style="font-size: 12px;margin-left: 0px;margin-top: 7px;">Please enter your valid username.</p>
             </div>
-            <div class="mb-3"><input id = "password" class="border rounded-pill form-control" type="password" name="password" placeholder="Password" style="background: linear-gradient(0deg, rgb(252,252,252), white), rgb(255,255,255);border-bottom-color: rgb(0,0,0);" >
+            <div class="mb-3"><input id = "password" class="border rounded-pill form-control" type="password" name="password" placeholder="Password" style="background: linear-gradient(0deg, rgb(252,252,252), white), rgb(255,255,255);border-bottom-color: rgb(0,0,0);"  required ="" >
                 <p class="text-start" style="font-size: 12px;margin-left: 0px;margin-top: 7px;">Please enter your password.</p>
             </div>
+            <div>
+                <p id= "validationMessage" class="text-danger"></p>
+            </div>
+
             <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100" type="submit" style="border-radius: 25px;background: #2E83F2;margin-top: 40px;">Login</button></div>
         </form>
     </section>

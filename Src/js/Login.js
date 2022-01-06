@@ -38,16 +38,16 @@ App = {
     var password = $('#password').val();
     App.contracts.User.deployed().then(function(instance) {
      // return instance.login(username, password);
-        return instance.login("Abdul", "123");
-
+        return instance.login(username,password);
     }).then(function(result) {
-      console.log(result);
       if(result)
       {
-        window.open("../WebPages/hospitals_input.html","_self");
+        window.open("../WebPages/dashboard.html","_self");
       }
       else {
-        window.open("../WebPages/hospitals_input.html","_self");
+        var paragraph = document.getElementById("validationMessage");
+
+        paragraph.textContent += "Username or password is incorrect!";
       }
     }).catch(function(err) {
       console.error(err);

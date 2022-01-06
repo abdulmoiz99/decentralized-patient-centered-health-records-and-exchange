@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>decentralized-patient-centered-health-records-and-exchange</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background: #359AF2;">
+        <div class="container">
+            <div class="logo" style="text-align: center;margin-right: 25px;"><i class="fa fa-heartbeat" style="font-size: 25px;color: rgb(255,255,255);text-align: left;margin-left: 0px;margin-right: 5px;"></i><label class="form-label" style="color: rgb(255,255,255);font-size: 25px;margin-left: 5px;">MyApp</label></div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-dashboard d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" href="dashboard.html" style="color: #ffffff;margin-left: 10px;">Dashboard</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fas fa-hospital d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" style="color: #ffffff;margin-left: 10px;" href="hospitals_view.html">Hospitals</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-user-plus d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" href="patients_view.html" style="color: #ffffff;margin-left: 10px;">Patients</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-users d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link active" href="#" style="color: #ffffff;text-shadow: 0px 0px 2px;margin-left: 10px;">Roles</a></li>
+                    <li class="nav-item" style="margin-left: 10px;"><i class="fa fa-gear d-inline float-start" style="border-top-color: rgb(51, 51, 51);color: rgb(255,255,255);padding: 0px;padding-top: 10px;"></i><a class="nav-link" href="user_input.html" style="color: #ffffff;margin-left: 10px;">Settings</a></li>
+                </ul>
+                <div class="dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="text-decoration: none;color: #ffffff;">Abdul Moiz</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card shadow" style="margin-top: 25px;border-radius: 25px;">
+            <div class="card-body">
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-md-6 text-nowrap">
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><select class="flex-grow-1" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);width: 66%;margin-right: 10px;color: rgb(133,135,150);padding-left: 20px;" placeholder="Pakistan" required="">
+                                <option value="1" selected="">Doctor</option>
+                                <option value="2">Admin</option>
+                            </select><button class="btn btn-primary text-center shadow-sm w-100" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 85px;">Save</button></div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><input class="d-inline form-control form-control-sm" type="search" aria-controls="dataTable" placeholder="Add a new Role" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);padding-left: 20px;max-width: 65%;margin-right: 10px;color: rgb(133, 135, 150);"><button class="btn btn-primary text-center shadow-sm d-inline float-end w-100" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 85px;">Add</button></div>
+                    </div>
+                </div>
+                <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                    <table class="table my-0" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);"><input type="checkbox"></th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Modules</th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Access</th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Add</th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Update</th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Delete</th>
+                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><label class="form-label">Patient</label></td>
+                                <td style="color: rgb(46,131,242);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td class="text-end">
+                                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
+                                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><label class="form-label">Doctor</label></td>
+                                <td style="color: rgb(46,131,242);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td style="color: rgb(0,0,0);"><input type="checkbox"></td>
+                                <td class="text-end">
+                                    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
+                                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/chart.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

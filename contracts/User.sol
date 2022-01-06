@@ -6,7 +6,6 @@ contract User {
     struct structUser{
         uint id;
         uint roleId;
-        string fullName;
         string username;
         string password;
         bool active;
@@ -19,7 +18,7 @@ contract User {
     
     constructor () {
         //For testing purpose only 
-        Users[usersCount] = structUser(usersCount,1,"Abdul Moiz","Abdul","123", true, 0);
+        Users[usersCount] = structUser(usersCount,1,"admin","123", true, 0);
         usersCount ++;
     }
     // user login function
@@ -39,7 +38,7 @@ contract User {
     {
         if(!checkUsername(_username))
         {
-            Users[usersCount] = structUser(usersCount,1,"Abdul Moiz",_username,_password, true, 0);
+            Users[usersCount] = structUser(usersCount,1,_username,_password, true, 0);
             usersCount ++;
             return true;
         }
