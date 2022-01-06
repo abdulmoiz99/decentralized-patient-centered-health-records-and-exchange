@@ -42,12 +42,27 @@ App = {
   
     addPatient: function() {
         console.log("Function started");
-    //  var Hospitalname = $('#hospitalName').val();
-    //  var password = $('#hospitalAddress').val();
+      var fullName = $('#fullName').val();
+      var dateOfBirth = $('#dateOfBirth').val();
+      var CNIC = $('#CNIC').val();
+      var hospitalId = $('#hospitalId').val(); // needs to update the hospital id in the final version
+      var PhoneNo = $('#PhoneNo').val();
+      var email = $('#email').val();
+      var status = $('#status').val();
+      var gender = $('#gender').val();
+
       App.contracts.Patient.deployed().then(function(instance) {
-        return instance. AddPatient("test Patient", "08/05/2025", "42401123123123", 1, "923142313111", "abdulmoiz@gmail.com", "healthy", "male", {from: App.account});
+        return instance. AddPatient(fullName, dateOfBirth, CNIC, 1, PhoneNo, email, status,gender, {from: App.account});
       }).then(function(result) {
-        console.log("result" + result);
+        if(result)
+        {
+          window.open("../WebPages/patients_Input.html","_self");
+
+        }
+        else
+        {
+          console.log(result);
+        }
       }).catch(function(err) {
         console.error(err);
       });
