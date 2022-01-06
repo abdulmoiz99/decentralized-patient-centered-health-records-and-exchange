@@ -32,6 +32,7 @@
             </div>
         </div>
     </nav>
+    <form id="addHospital">
     <div class="container">
         <div class="card shadow" style="margin-top: 25px;border-radius: 25px;">
             <div class="card-body">
@@ -46,45 +47,52 @@
                 <div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Name</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Jinnah Postgraduate Medical Centre" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;">
+                            <input id = "name" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Jinnah Postgraduate Medical Centre" required = "" >
+                        </div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Address</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "location" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address" required = "" ></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">&nbsp;</label></div>
-                        <div class="col d-sm-flex d-md-flex d-xl-flex align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address Line 2" required=""></div>
+                        <div class="col d-sm-flex d-md-flex d-xl-flex align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address Line 2" ></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">City</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Karachi" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "city"  class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Karachi" required = ""></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">State/Province</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Sindh" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "state" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Sindh" required = ""></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Postal Code</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="75330" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "postalCode" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="75330" required = ""></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Country</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Pakistan" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "country" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Pakistan"required = "" ></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Phone Number</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Phone Number" required=""></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "phoneNumber" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Phone Number"required = "" ></div>
                     </div>
                     <div style="max-width: 80%;margin-right: auto;margin-left: auto;"></div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/chart.min.js"></script>
-    <script src="../assets/js/bs-init.js"></script>
-    <script src="../assets/js/theme.js"></script>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/js/chart.min.js"></script>
+<script src="../assets/js/bs-init.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../js/web3.min.js"></script>
+<script src="../js/truffle-contract.js"></script>
+<script src="../js/Hospital.js"></script>
 </body>
 
 </html>

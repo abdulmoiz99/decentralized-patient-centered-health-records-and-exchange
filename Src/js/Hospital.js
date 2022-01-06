@@ -40,14 +40,27 @@ App = {
 
     },
   
-    login: function() {
+    addHospital: function() {
         console.log("Function started");
-    //  var Hospitalname = $('#hospitalName').val();
-    //  var password = $('#hospitalAddress').val();
+
+      var name = $('#name').val();
+      var location = $('#location').val();
+      var city = $('#city').val();
+      var state = $('#state').val();
+      var postalCode = $('#postalCode').val();
+      var country = $('#country').val();
+      var phoneNumber = $('#phoneNumber').val();
+
       App.contracts.Hospital.deployed().then(function(instance) {
-        return instance.CreateHospital("name4","location1","city1","state1","postalcode1","country1","phoneNumber1", {from: App.account}); 
+        return instance.CreateHospital(name,location,city,state,postalCode,country,phoneNumber, {from: App.account}); 
       }).then(function(result) {
-        console.log("result" + result);
+        if(result)
+        {
+          window.open("../WebPages/hospitals_input.html","_self");
+        }
+        else {
+          console.log(result);
+        }
       }).catch(function(err) {
         console.error(err);
       });
@@ -60,10 +73,10 @@ App = {
     });
   });
   
-  const form = document.querySelector('#login');
+  const form = document.querySelector('#addHospital');
   form.addEventListener('submit', event => {
     event.preventDefault();
-    App.login();
+    App.addHospital();
   });
   
   
