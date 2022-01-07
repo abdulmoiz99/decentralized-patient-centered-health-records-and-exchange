@@ -4,7 +4,7 @@ App = {
     account: '0x0',
     hasVoted: false,
   
-    init: function() {
+    init: async function() {
       return App.initWeb3(); 
     },
     
@@ -37,7 +37,6 @@ App = {
           App.account = account;
         }
       });
-
     },
   
     addHospital: function() {
@@ -92,17 +91,16 @@ App = {
   
   $(function() {
     $(window).load(function() {
-      App.init();
-   console.log("Hit");
-   App.getHospitals();
-    });
+          App.init();
+          setTimeout(() => App.getHospitals(), 500);
+      });
   });
   
-  const form = document.querySelector('#addHospital');
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    App.addHospital();
-  });
+  // const form = document.querySelector('#addHospital');
+  // form.addEventListener('submit', event => {
+  //   event.preventDefault();
+  //   App.addHospital();
+  // });
   
 
   
