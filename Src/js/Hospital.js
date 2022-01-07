@@ -41,8 +41,6 @@ App = {
     },
   
     addHospital: function() {
-        console.log("Function started");
-
       var name = $('#name').val();
       var location = $('#location').val();
       var city = $('#city').val();
@@ -64,12 +62,39 @@ App = {
       }).catch(function(err) {
         console.error(err);
       });
-    }
+    },
+
+    getHospitals: function() {
+      console.log("fff");
+      var name = "1";
+      var location = "1";
+      var city ="1";
+      var state = "1";
+      var postalCode = "1";
+      var country ="1";
+      var phoneNumber = "1";
+
+      App.contracts.Hospital.deployed().then(function(instance) {
+        return instance.CreateHospital(name,location,city,state,postalCode,country,phoneNumber, {from: App.account}); 
+      }).then(function(result) {
+        if(result)
+        {
+          window.open("../WebPages/hospitals_input.html","_self");
+        }
+        else {
+          console.log(result);
+        }
+      }).catch(function(err) {
+        console.error(err);
+      });
+  }
   };
   
   $(function() {
     $(window).load(function() {
       App.init();
+   console.log("Hit");
+   App.getHospitals();
     });
   });
   
@@ -79,5 +104,5 @@ App = {
     App.addHospital();
   });
   
-  
+
   
