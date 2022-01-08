@@ -10986,12 +10986,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x0784BFb56fbfB6ba5a4Ef9D3b524faACB6C0100d",
-      "transactionHash": "0x1763495dad18aa55b02f839b9ac5b704c2d5dcc1fdc210b554a7ec9ef648d9c1"
+      "address": "0x4Bab999F0B8A9d7DED5ac69cEc0Dd78A424641E9",
+      "transactionHash": "0x66a62cd252e5212c47fa6d55d15c047a573838b045a73c39d9c2b0a66c161604"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-07T13:15:24.310Z",
+  "updatedAt": "2022-01-08T10:09:42.983Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
