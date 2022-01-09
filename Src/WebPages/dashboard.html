@@ -39,8 +39,8 @@
                     <div class="card-body">
                         <div class="row align-items-center no-gutters">
                             <div class="col me-2">
-                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>NODES Connected</span></div>
-                                <div class="text-dark fw-bold h5 mb-0"><span>10</span></div>
+                                <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Gas Price</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span id = "price">0 wei</span></div>
                             </div>
                             <div class="col-auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-node-plus-fill fa-2x text-gray-300">
                                     <path fill-rule="evenodd" d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5a.5.5 0 0 0-1 0v2h-2a.5.5 0 0 0 0 1h2v2a.5.5 0 0 0 1 0v-2h2a.5.5 0 0 0 0-1h-2v-2z"></path>
@@ -55,7 +55,7 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col me-2">
                                 <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Blocks APPENDED</span></div>
-                                <div class="text-dark fw-bold h5 mb-0"><span>53</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span id = "blocks">0</span></div>
                             </div>
                             <div class="col-auto"><i class="fas fa-cubes fa-2x text-gray-300"></i></div>
                         </div>
@@ -90,7 +90,7 @@
                         <div class="row align-items-center no-gutters">
                             <div class="col me-2">
                                 <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>Transactions processed</span></div>
-                                <div class="text-dark fw-bold h5 mb-0"><span>18</span></div>
+                                <div class="text-dark fw-bold h5 mb-0"><span id = "transactions">0</span></div>
                             </div>
                             <div class="col-auto"><i class="fas fa-exchange-alt fa-2x text-gray-300"></i></div>
                         </div>
@@ -166,7 +166,7 @@
                     <div class="card-header py-3">
                         <h6 class="text-primary d-inline fw-bold m-0">Todo List</h6><input class="d-inline float-end" type="text" id="address" placeholder="Press Enter to add Todo" name="todo">
                     </div>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush" id = "todo">
                         <li class="list-group-item">
                             <div class="row align-items-center no-gutters">
                                 <div class="col me-2">
@@ -248,10 +248,14 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/chart.min.js"></script>
     <script src="../assets/js/bs-init.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../js/web3.min.js"></script>
+    <script src="../js/truffle-contract.js"></script>
+    <script src="../js/Dashboard.js"></script>
 </body>
 
 </html>
