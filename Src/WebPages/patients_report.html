@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>decentralized-patient-centered-health-records-and-exchange</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    />
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css" />
+    <link rel="stylesheet" href="../assets/css/Timeline.css" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-light navbar-expand-md navigation-clean-button"
+      style="background: #359af2"
+    >
+      <div class="container">
+        <div class="logo" style="text-align: center; margin-right: 25px">
+          <i
+            class="fa fa-heartbeat"
+            style="
+              font-size: 25px;
+              color: rgb(255, 255, 255);
+              text-align: left;
+              margin-left: 0px;
+              margin-right: 5px;
+            "
+          ></i
+          ><label
+            class="form-label"
+            style="color: rgb(255, 255, 255); font-size: 25px; margin-left: 5px"
+            >MyApp</label
+          >
+        </div>
+        <button
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          data-bs-target="#navcol-1"
+        >
+          <span class="visually-hidden">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fa fa-dashboard d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link"
+                href="dashboard.html"
+                style="color: #ffffff; margin-left: 10px"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fas fa-hospital d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link"
+                href="hospitals_view.html"
+                style="color: #ffffff; margin-left: 10px"
+                >Hospitals</a
+              >
+            </li>
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fa fa-user-plus d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link active"
+                href="#"
+                style="
+                  color: #ffffff;
+                  text-shadow: 0px 0px 2px;
+                  margin-left: 10px;
+                "
+                >Patients</a
+              >
+            </li>
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fa fa-users d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link"
+                href="roles.html"
+                style="color: #ffffff; margin-left: 10px"
+                >Roles</a
+              >
+            </li>
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fas fa-clipboard d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link"
+                href="reports.html"
+                style="color: #ffffff; margin-left: 10px"
+                >Reports</a
+              >
+            </li>
+            <li class="nav-item" style="margin-left: 10px">
+              <i
+                class="fa fa-gear d-inline float-start"
+                style="
+                  border-top-color: rgb(51, 51, 51);
+                  color: rgb(255, 255, 255);
+                  padding: 0px;
+                  padding-top: 10px;
+                "
+              ></i
+              ><a
+                class="nav-link"
+                href="user_input.html"
+                style="color: #ffffff; margin-left: 10px"
+                >Settings</a
+              >
+            </li>
+          </ul>
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              href="#"
+              style="text-decoration: none; color: #ffffff"
+              >Abdul Moiz</a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">First Item</a
+              ><a class="dropdown-item" href="#">Second Item</a
+              ><a class="dropdown-item" href="#">Third Item</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card shadow" style="margin-top: 25px; border-radius: 25px">
+        <div class="card-body">
+          <div class="row" style="margin-bottom: 20px">
+            <div class="col-md-6 text-nowrap">
+              <a href="patients_view.html" style="text-decoration: none"
+                ><button
+                  class="btn btn-primary shadow-sm d-inline"
+                  type="button"
+                  style="
+                    width: 90px;
+                    color: #0f2440;
+                    background: rgb(255, 255, 255);
+                    border-color: rgba(15, 36, 64, 0.5);
+                    border-radius: 25px;
+                    margin-left: 0px;
+                    margin-top: 0px;
+                  "
+                >
+                  <i
+                    class="fa fa-arrow-left"
+                    style="color: rgb(53, 154, 242); margin-right: 2px"
+                  ></i
+                  >&nbsp;Back
+                </button></a
+              >
+              <h5
+                class="d-inline"
+                style="color: rgb(0, 0, 0); margin-left: 35px"
+              >
+                Patient Reports
+              </h5>
+            </div>
+            <div class="container">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-badge">
+                    <label style = "font-size: x-small;">31/12/12</label>
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title"><a href="patients_report_details.html" style="text-decoration: none;">Mussum ipsum cacilds</a></h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Mussum ipsum cacilds, vidis litro abertis. Consetis
+                        adipiscings elitis. Pra lá , depois divoltis porris,
+                        paradis. Paisis, filhis, espiritis santis. Mé faiz
+                        elementum girarzis, nisi eros vermeio, in elementis mé
+                        pra quem é amistosis quis leo. Manduma pindureta quium
+                        dia nois paga. Sapien in monti palavris qui num
+                        significa nadis i pareci latim. Interessantiss quisso
+                        pudia ce receita de bolis, mais bolis eu num gostis.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge warning">
+                      <label style = "font-size: x-small;">31/12/12</label>
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Mussum ipsum cacilds, vidis litro abertis. Consetis
+                        adipiscings elitis. Pra lá , depois divoltis porris,
+                        paradis. Paisis, filhis, espiritis santis. Mé faiz
+                        elementum girarzis, nisi eros vermeio, in elementis mé
+                        pra quem é amistosis quis leo. Manduma pindureta quium
+                        dia nois paga. Sapien in monti palavris qui num
+                        significa nadis i pareci latim. Interessantiss quisso
+                        pudia ce receita de bolis, mais bolis eu num gostis.
+                      </p>
+                      <p>
+                        Suco de cevadiss, é um leite divinis, qui tem lupuliz,
+                        matis, aguis e fermentis. Interagi no mé, cursus quis,
+                        vehicula ac nisi. Aenean vel dui dui. Nullam leo erat,
+                        aliquet quis tempus a, posuere ut mi. Ut scelerisque
+                        neque et turpis posuere pulvinar pellentesque nibh
+                        ullamcorper. Pharetra in mattis molestie, volutpat
+                        elementum justo. Aenean ut ante turpis. Pellentesque
+                        laoreet mé vel lectus scelerisque interdum cursus velit
+                        auctor. Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Etiam ac mauris lectus, non scelerisque
+                        augue. Aenean justo massa.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-badge danger">
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Mussum ipsum cacilds, vidis litro abertis. Consetis
+                        adipiscings elitis. Pra lá , depois divoltis porris,
+                        paradis. Paisis, filhis, espiritis santis. Mé faiz
+                        elementum girarzis, nisi eros vermeio, in elementis mé
+                        pra quem é amistosis quis leo. Manduma pindureta quium
+                        dia nois paga. Sapien in monti palavris qui num
+                        significa nadis i pareci latim. Interessantiss quisso
+                        pudia ce receita de bolis, mais bolis eu num gostis.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge success">
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p>
+                        Mussum ipsum cacilds, vidis litro abertis. Consetis
+                        adipiscings elitis. Pra lá , depois divoltis porris,
+                        paradis. Paisis, filhis, espiritis santis. Mé faiz
+                        elementum girarzis, nisi eros vermeio, in elementis mé
+                        pra quem é amistosis quis leo. Manduma pindureta quium
+                        dia nois paga. Sapien in monti palavris qui num
+                        significa nadis i pareci latim. Interessantiss quisso
+                        pudia ce receita de bolis, mais bolis eu num gostis.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/chart.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/theme.js"></script>
+  </body>
+</html>
