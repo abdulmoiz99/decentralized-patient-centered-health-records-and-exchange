@@ -34,7 +34,7 @@ contract Patient {
         bool MotorFucntionAbilityImpaired;
         bool Other;
     }
-    uint patientCount = 0;
+    uint public patientCount = 0;
     mapping(uint => structPatient) public Patients;
 
     constructor () {
