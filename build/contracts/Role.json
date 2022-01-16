@@ -38,8 +38,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Roles\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dateCreated\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Role.sol\":\"Role\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Role.sol\":{\"keccak256\":\"0x560284b11dad0b6721ed686ee2fc57877f357698badb692e0b3ba87648a3d4f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b01029f2410a161a2bc6d0f639fa507c0353dc2d8a61a0a22e0317152ec15a6\",\"dweb:/ipfs/QmbZ7775je4e7jrcfoFUaknhbtwVt4fq5u5FGJ5mS11cBQ\"]}},\"version\":1}",
@@ -2087,15 +2086,15 @@
     "absolutePath": "project:/contracts/Role.sol",
     "exportedSymbols": {
       "Role": [
-        641
+        801
       ]
     },
-    "id": 642,
+    "id": 802,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 622,
+        "id": 782,
         "literals": [
           "solidity",
           ">=",
@@ -2115,9 +2114,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 641,
+        "id": 801,
         "linearizedBaseContracts": [
-          641
+          801
         ],
         "name": "Role",
         "nameLocation": "78:4:5",
@@ -2125,16 +2124,16 @@
         "nodes": [
           {
             "canonicalName": "Role.structRole",
-            "id": 631,
+            "id": 791,
             "members": [
               {
                 "constant": false,
-                "id": 624,
+                "id": 784,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "129:2:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "124:7:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2143,7 +2142,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 623,
+                  "id": 783,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "124:4:5",
@@ -2156,12 +2155,12 @@
               },
               {
                 "constant": false,
-                "id": 626,
+                "id": 786,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "149:4:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "142:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2170,7 +2169,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 625,
+                  "id": 785,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "142:6:5",
@@ -2183,12 +2182,12 @@
               },
               {
                 "constant": false,
-                "id": 628,
+                "id": 788,
                 "mutability": "mutable",
                 "name": "dateCreated",
                 "nameLocation": "172:11:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "164:19:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2197,7 +2196,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 627,
+                  "id": 787,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "164:7:5",
@@ -2210,12 +2209,12 @@
               },
               {
                 "constant": false,
-                "id": 630,
+                "id": 790,
                 "mutability": "mutable",
                 "name": "active",
                 "nameLocation": "199:6:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "194:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2224,7 +2223,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 629,
+                  "id": 789,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "194:4:5",
@@ -2239,30 +2238,30 @@
             "name": "structRole",
             "nameLocation": "103:10:5",
             "nodeType": "StructDefinition",
-            "scope": 641,
+            "scope": 801,
             "src": "96:117:5",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "6fc0020b",
-            "id": 636,
+            "id": 796,
             "mutability": "mutable",
             "name": "Roles",
             "nameLocation": "256:5:5",
             "nodeType": "VariableDeclaration",
-            "scope": 641,
+            "scope": 801,
             "src": "221:40:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$631_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$791_storage_$",
               "typeString": "mapping(uint256 => struct Role.structRole)"
             },
             "typeName": {
-              "id": 635,
+              "id": 795,
               "keyType": {
-                "id": 632,
+                "id": 792,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "229:4:5",
@@ -2274,23 +2273,23 @@
               "nodeType": "Mapping",
               "src": "221:27:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$631_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$791_storage_$",
                 "typeString": "mapping(uint256 => struct Role.structRole)"
               },
               "valueType": {
-                "id": 634,
+                "id": 794,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 633,
+                  "id": 793,
                   "name": "structRole",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 631,
+                  "referencedDeclaration": 791,
                   "src": "237:10:5"
                 },
-                "referencedDeclaration": 631,
+                "referencedDeclaration": 791,
                 "src": "237:10:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_structRole_$631_storage_ptr",
+                  "typeIdentifier": "t_struct$_structRole_$791_storage_ptr",
                   "typeString": "struct Role.structRole"
                 }
               }
@@ -2299,12 +2298,12 @@
           },
           {
             "body": {
-              "id": 639,
+              "id": 799,
               "nodeType": "Block",
               "src": "288:18:5",
               "statements": []
             },
-            "id": 640,
+            "id": 800,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -2312,25 +2311,25 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 637,
+              "id": 797,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "285:2:5"
             },
             "returnParameters": {
-              "id": 638,
+              "id": 798,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "288:0:5"
             },
-            "scope": 641,
+            "scope": 801,
             "src": "273:33:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 642,
+        "scope": 802,
         "src": "69:240:5",
         "usedErrors": []
       }
@@ -2341,15 +2340,15 @@
     "absolutePath": "project:/contracts/Role.sol",
     "exportedSymbols": {
       "Role": [
-        641
+        801
       ]
     },
-    "id": 642,
+    "id": 802,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 622,
+        "id": 782,
         "literals": [
           "solidity",
           ">=",
@@ -2369,9 +2368,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 641,
+        "id": 801,
         "linearizedBaseContracts": [
-          641
+          801
         ],
         "name": "Role",
         "nameLocation": "78:4:5",
@@ -2379,16 +2378,16 @@
         "nodes": [
           {
             "canonicalName": "Role.structRole",
-            "id": 631,
+            "id": 791,
             "members": [
               {
                 "constant": false,
-                "id": 624,
+                "id": 784,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "129:2:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "124:7:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2397,7 +2396,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 623,
+                  "id": 783,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "124:4:5",
@@ -2410,12 +2409,12 @@
               },
               {
                 "constant": false,
-                "id": 626,
+                "id": 786,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "149:4:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "142:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2424,7 +2423,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 625,
+                  "id": 785,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "142:6:5",
@@ -2437,12 +2436,12 @@
               },
               {
                 "constant": false,
-                "id": 628,
+                "id": 788,
                 "mutability": "mutable",
                 "name": "dateCreated",
                 "nameLocation": "172:11:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "164:19:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2451,7 +2450,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 627,
+                  "id": 787,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "164:7:5",
@@ -2464,12 +2463,12 @@
               },
               {
                 "constant": false,
-                "id": 630,
+                "id": 790,
                 "mutability": "mutable",
                 "name": "active",
                 "nameLocation": "199:6:5",
                 "nodeType": "VariableDeclaration",
-                "scope": 631,
+                "scope": 791,
                 "src": "194:11:5",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2478,7 +2477,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 629,
+                  "id": 789,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "194:4:5",
@@ -2493,30 +2492,30 @@
             "name": "structRole",
             "nameLocation": "103:10:5",
             "nodeType": "StructDefinition",
-            "scope": 641,
+            "scope": 801,
             "src": "96:117:5",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "6fc0020b",
-            "id": 636,
+            "id": 796,
             "mutability": "mutable",
             "name": "Roles",
             "nameLocation": "256:5:5",
             "nodeType": "VariableDeclaration",
-            "scope": 641,
+            "scope": 801,
             "src": "221:40:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$631_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$791_storage_$",
               "typeString": "mapping(uint256 => struct Role.structRole)"
             },
             "typeName": {
-              "id": 635,
+              "id": 795,
               "keyType": {
-                "id": 632,
+                "id": 792,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
                 "src": "229:4:5",
@@ -2528,23 +2527,23 @@
               "nodeType": "Mapping",
               "src": "221:27:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$631_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_structRole_$791_storage_$",
                 "typeString": "mapping(uint256 => struct Role.structRole)"
               },
               "valueType": {
-                "id": 634,
+                "id": 794,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 633,
+                  "id": 793,
                   "name": "structRole",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 631,
+                  "referencedDeclaration": 791,
                   "src": "237:10:5"
                 },
-                "referencedDeclaration": 631,
+                "referencedDeclaration": 791,
                 "src": "237:10:5",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_structRole_$631_storage_ptr",
+                  "typeIdentifier": "t_struct$_structRole_$791_storage_ptr",
                   "typeString": "struct Role.structRole"
                 }
               }
@@ -2553,12 +2552,12 @@
           },
           {
             "body": {
-              "id": 639,
+              "id": 799,
               "nodeType": "Block",
               "src": "288:18:5",
               "statements": []
             },
-            "id": 640,
+            "id": 800,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -2566,25 +2565,25 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 637,
+              "id": 797,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "285:2:5"
             },
             "returnParameters": {
-              "id": 638,
+              "id": 798,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "288:0:5"
             },
-            "scope": 641,
+            "scope": 801,
             "src": "273:33:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 642,
+        "scope": 802,
         "src": "69:240:5",
         "usedErrors": []
       }
@@ -2604,8 +2603,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-16T09:48:18.423Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-01-16T13:54:33.176Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
