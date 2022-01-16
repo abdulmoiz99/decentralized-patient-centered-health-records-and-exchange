@@ -4,7 +4,7 @@ pragma solidity >=0.4.22 <0.9.0;
 contract User {
     
     struct structUser{
-        uint id;
+        address id;
         uint roleId;
         string username;
         string password;
@@ -18,8 +18,8 @@ contract User {
     
     constructor () {
         //For testing purpose only 
-        Users[usersCount] = structUser(usersCount,1,"admin","123", true, 0);
-        usersCount ++;
+        // Users[usersCount] = structUser("0xasdasdasd",1,"admin","123", true, 0);
+        // usersCount ++;
     }
     // user login function
     function login(string memory _username, string memory _password)  public view returns (bool)
@@ -38,7 +38,7 @@ contract User {
     {
         if(!checkUsername(_username))
         {
-            Users[usersCount] = structUser(usersCount,1,_username,_password, true, 0);
+            Users[usersCount] = structUser(msg.sender,1,_username,_password, true, 0);
             usersCount ++;
             return true;
         }
@@ -57,5 +57,14 @@ contract User {
             }
         }
         return false;
+    }
+    function getAll() public view returns (structUser[] memory)
+    {
+        structUser[] memory UserList = new structUser[](usersCount+1);
+        for (uint i = 0; i <= usersCount; i++) 
+        {
+            UserList[i] = Users[i];
+        }
+        return UserList;
     }
 }
