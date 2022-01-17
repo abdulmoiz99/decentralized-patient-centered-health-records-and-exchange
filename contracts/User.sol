@@ -13,23 +13,32 @@ contract User {
     }
 
     mapping(uint => structUser) public Users;
+
     //Holds user count 
     uint public usersCount = 0;
     
     constructor () {
         //For testing purpose only 
         // Users[usersCount] = structUser("0xasdasdasd",1,"admin","123", true, 0);
-        // usersCount ++;
+        Users[usersCount] = structUser(0xf517c1b3917033D7344688600AA0ed8d643BF131, 1,"admin","123", true, 0);
+        usersCount ++;
     }
     // user login function
-    function login(string memory _username, string memory _password)  public view returns (bool)
+    function checkUser(address _connectedAccount, uint[] memory _roles)  public view returns (bool)
     {
         for(uint i = 0; i < usersCount; i++){
 
-            if(keccak256(abi.encodePacked(Users[i].username)) == keccak256(abi.encodePacked(_username)) && 
-               keccak256(abi.encodePacked(Users[i].password)) == keccak256(abi.encodePacked(_password)) )
+            // if(keccak256(abi.encodePacked(Users[i].username)) == keccak256(abi.encodePacked(_username)) && 
+            //    keccak256(abi.encodePacked(Users[i].password)) == keccak256(abi.encodePacked(_password)) )
+            // {
+            //     return true;
+            // }
+            if (Users[i].id == _connectedAccount) 
             {
-                return true;
+                for (uint j = 0; j < _roles.length; j++) 
+                {
+                    if (Users[i].roleId == _roles[j])  return true;
+                }
             }
         }
         return false;
@@ -67,4 +76,9 @@ contract User {
         }
         return UserList;
     }
+
+    modifier isAuthorized (address account, uint[] memory roles) {
+    require(checkUser(account, roles));
+    _;
+}
 }

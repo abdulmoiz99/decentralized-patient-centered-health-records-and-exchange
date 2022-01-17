@@ -44,26 +44,27 @@ App = {
     var userInstance = await App.contracts.User.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
-        userInstance.checkUser(accounts[0], [1]).then(function(response)
+        userInstance.checkUser(accounts[0], [1]).then(function(authenticated)
         {
-            authenticated = response;
-            if (authenticated) {
-              //After user is authenticated
-              web3.eth.getBlockNumber(function (error, result) {
-                if (!error) $("#blocks").text(result);
-              });
-              web3.eth.getTransactionCount(accounts[0], function (error, count) {
-                if (!error) $("#transactions").text(count);
-              });
-              web3.eth.getGasPrice(function (error, result) {
-                if (!error) $("#price").text(result + " wei");
-              });
-            }
-            else 
-            {
-              //Render another page
-            }
-        }); 
+          if (authenticated) {
+
+            //If the user is authenticated
+
+            web3.eth.getBlockNumber(function (error, result) {
+              if (!error) $("#blocks").text(result);
+            });
+            web3.eth.getTransactionCount(accounts[0], function (error, count) {
+              if (!error) $("#transactions").text(count);
+            });
+            web3.eth.getGasPrice(function (error, result) {
+              if (!error) $("#price").text(result + " wei");
+            });
+          }
+          else {
+            //Render another page;
+          }
+          
+        });
       }
     });
   },
