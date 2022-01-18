@@ -104,7 +104,7 @@ App = {
               <td style="color: rgb(0,0,0);">${address}<br></td>
               <td class="text-end">
                   <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
-                      <div class="dropdown-menu"><a class="dropdown-item" href="#">Edit Details</a><a class="dropdown-item" href="#">Delete Record</a></div>
+                      <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="#">Edit Details</a><a class="dropdown-item" href="#">Delete Record</a></div>
                   </div>
               </td>
           </tr>`;

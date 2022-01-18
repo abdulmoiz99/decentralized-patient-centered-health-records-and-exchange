@@ -20,7 +20,7 @@ contract User {
     constructor () {
         //For testing purpose only 
         // Users[usersCount] = structUser("0xasdasdasd",1,"admin","123", true, 0);
-        Users[usersCount] = structUser(0xf517c1b3917033D7344688600AA0ed8d643BF131, 1,"admin","123", true, 0);
+        Users[usersCount] = structUser(0x5e6A85AF29fb1F15939D767c3f5d844cA8b7DE1F, 1,"admin","123", true, 0);
         usersCount ++;
     }
     // user login function
@@ -80,5 +80,5 @@ contract User {
     modifier isAuthorized (address account, uint[] memory roles) {
     require(checkUser(account, roles));
     _;
-}
+    }
 }
