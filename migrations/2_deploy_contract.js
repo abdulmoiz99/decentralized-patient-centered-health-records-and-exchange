@@ -4,6 +4,8 @@ const User = artifacts.require("./User.sol");
 const Hospital = artifacts.require("./Hospital.sol");
 const Doctor = artifacts.require("./Doctor.sol");
 const Patient = artifacts.require("./Patient.sol");
+const Report = artifacts.require("./Report.sol");
+
 
 module.exports = function (deployer) {
   deployer.deploy(Role);
@@ -12,4 +14,6 @@ module.exports = function (deployer) {
   deployer.deploy(Hospital);
   deployer.deploy(Doctor);
   deployer.deploy(Patient);
+  deployer.deploy(Report);
+
 };

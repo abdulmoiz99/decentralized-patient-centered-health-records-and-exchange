@@ -1,283 +1,212 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>decentralized-patient-centered-health-records-and-exchange</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    />
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css" />
-    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css" />
-  </head>
 
-  <body>
-    <nav
-      class="navbar navbar-light navbar-expand-md navigation-clean-button"
-      style="background: #359af2"
-    >
-      <div class="container">
-        <div class="logo" style="text-align: center; margin-right: 25px">
-          <i
-            class="fa fa-heartbeat"
-            style="
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>decentralized-patient-centered-health-records-and-exchange</title>
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+  <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css" />
+  <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
+  <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css" />
+  <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background: #359af2;">
+    <div class="container">
+      <div class="logo" style="text-align: center; margin-right: 25px;">
+        <i class="fa fa-heartbeat" style="
               font-size: 25px;
               color: rgb(255, 255, 255);
               text-align: left;
               margin-left: 0px;
               margin-right: 5px;
-            "
-          ></i
-          ><label
-            class="form-label"
-            style="color: rgb(255, 255, 255); font-size: 25px; margin-left: 5px"
-            >MyApp</label
-          >
-        </div>
-        <button
-          data-bs-toggle="collapse"
-          class="navbar-toggler"
-          data-bs-target="#navcol-1"
-        >
-          <span class="visually-hidden">Toggle navigation</span
-          ><span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fa fa-dashboard d-inline float-start"
-                style="
+            "></i>
+        <label class="form-label" style="
+              color: rgb(255, 255, 255);
+              font-size: 25px;
+              margin-left: 5px;
+            ">
+          MyApp
+        </label>
+      </div>
+      <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+        <span class="visually-hidden">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fa fa-dashboard d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link"
-                href="dashboard.html"
-                style="color: #ffffff; margin-left: 10px"
-                >Dashboard</a
-              >
-            </li>
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fas fa-hospital d-inline float-start"
-                style="
+                "></i>
+            <a class="nav-link" href="dashboard.html" style="color: #ffffff; margin-left: 10px;">
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fas fa-hospital d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link"
-                href="hospitals_view.html"
-                style="color: #ffffff; margin-left: 10px"
-                >Hospitals</a
-              >
-            </li>
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fa fa-user-plus d-inline float-start"
-                style="
+                "></i>
+            <a class="nav-link" href="hospitals_view.html" style="color: #ffffff; margin-left: 10px;">
+              Hospitals
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fa fa-user-plus d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link"
-                href="patients_view.html"
-                style="color: #ffffff; margin-left: 10px"
-                >Patients</a
-              >
-            </li>
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fa fa-users d-inline float-start"
-                style="
+                "></i>
+            <a class="nav-link" href="patients_view.html" style="color: #ffffff; margin-left: 10px;">
+              Patients
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fa fa-users d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link"
-                href="roles.html"
-                style="color: #ffffff; margin-left: 10px"
-                >Roles</a
-              >
-            </li>
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fas fa-clipboard d-inline float-start"
-                style="
+                "></i>
+            <a class="nav-link" href="roles.html" style="color: #ffffff; margin-left: 10px;">
+              Roles
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fas fa-clipboard d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link active"
-                href="#"
-                style="
+                "></i>
+            <a class="nav-link active" href="#" style="
                   color: #ffffff;
                   text-shadow: 0px 0px 2px;
                   margin-left: 10px;
-                "
-                >Reports</a
-              >
-            </li>
-            <li class="nav-item" style="margin-left: 10px">
-              <i
-                class="fa fa-gear d-inline float-start"
-                style="
+                ">
+              Reports
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 10px;">
+            <i class="fa fa-gear d-inline float-start" style="
                   border-top-color: rgb(51, 51, 51);
                   color: rgb(255, 255, 255);
                   padding: 0px;
                   padding-top: 10px;
-                "
-              ></i
-              ><a
-                class="nav-link"
-                href="user_input.html"
-                style="color: #ffffff; margin-left: 10px"
-                >Settings</a
-              >
-            </li>
-          </ul>
-          <div class="dropdown">
-            <a
-              class="dropdown-toggle"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              href="#"
-              style="text-decoration: none; color: #ffffff"
-              >Abdul Moiz</a
-            >
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">First Item</a
-              ><a class="dropdown-item" href="#">Second Item</a
-              ><a class="dropdown-item" href="#">Third Item</a>
-            </div>
+                "></i>
+            <a class="nav-link" href="user_input.html" style="color: #ffffff; margin-left: 10px;">
+              Settings
+            </a>
+          </li>
+        </ul>
+        <div class="dropdown">
+          <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#"
+            style="text-decoration: none; color: #ffffff;">
+            Abdul Moiz
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">First Item</a>
+            <a class="dropdown-item" href="#">Second Item</a>
+            <a class="dropdown-item" href="#">Third Item</a>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <form id="addReport">
     <div class="container">
-      <div class="card shadow" style="margin-top: 25px; border-radius: 25px">
+      <div class="card shadow" style="margin-top: 25px; border-radius: 25px;">
         <div class="card-body">
           <div class="row">
             <div class="col-md-6 text-nowrap">
-              <p
-                style="
-                  color: rgb(0, 0, 0);
-                  margin-left: 35px;
-                  font-size: 20px;
-                  margin-top: 3px;
-                "
-              >
+              <p style="
+                    color: rgb(0, 0, 0);
+                    margin-left: 35px;
+                    font-size: 20px;
+                    margin-top: 3px;
+                  ">
                 Create Report
               </p>
             </div>
-            <div class="col-md-6 text-end" style="margin-bottom: 25px">
-              <select
-                style="
-                  border-radius: 25px;
-                  background: linear-gradient(rgb(245, 245, 245), white);
-                  border-width: 1px;
-                  border-color: rgb(200, 200, 200);
-                  padding-left: 10px;
-                  padding-right: 10px;
-                  margin-right: 20px;
-                  min-width: 50%;
-                "
-                placeholder="Pakistan"
-                required=""
-              >
-                <option value="1">Naqqash Khan</option>
-                <option value="2">Abdul Moiz</option></select
-              ><button
-                class="btn btn-primary text-center shadow-sm w-100"
-                type="submit"
-                style="
-                  border-radius: 25px;
-                  background: #2e83f2;
-                  max-width: 125px;
-                "
-              >
+            <div class="col-md-6 text-end" style="margin-bottom: 25px;">
+              <select id="patienAddress" style="
+                    border-radius: 25px;
+                    background: linear-gradient(rgb(245, 245, 245), white);
+                    border-width: 1px;
+                    border-color: rgb(200, 200, 200);
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    margin-right: 20px;
+                    min-width: 50%;
+                  " placeholder="Pakistan" required="">
+                <option value="0x910Ce3C1e5d7E479F1669384D8110436fE077113">
+                  Naqqash Khan
+                </option>
+                <!-- Put the address in the value, through loop-->
+                <option value="0xc53Df2b8F357036F3A6668430F139352B9e62648">
+                  Abdul Moiz
+                </option>
+              </select>
+              <button type="submit" class="btn btn-primary text-center shadow-sm w-100" type="submit" style="
+                    border-radius: 25px;
+                    background: #2e83f2;
+                    max-width: 125px;
+                  ">
                 Save
               </button>
             </div>
           </div>
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xxl-2 text-end" style="max-width: 21%">
-              <label class="col-form-label" style="color: rgb(0, 0, 0)"
-                >Title</label
-              >
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-xxl-2 text-end" style="max-width: 21%;">
+              <label class="col-form-label" style="color: rgb(0, 0, 0);">
+                Title
+              </label>
             </div>
             <div
               class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center"
-              style="max-width: 73%"
-            >
-              <input
-                type="text"
-                class="flex-grow-1"
-                style="
-                  border-radius: 25px;
-                  background: linear-gradient(rgb(245, 245, 245), white);
-                  border-width: 1px;
-                  border-color: rgb(200, 200, 200);
-                  padding-left: 20px;
-                "
-                placeholder="SARS-CoV-2 (COVID-19) Antibodies"
-                required
-              />
+              style="max-width: 73%;">
+              <input id="Title" type="text" class="flex-grow-1" style="
+                    border-radius: 25px;
+                    background: linear-gradient(rgb(245, 245, 245), white);
+                    border-width: 1px;
+                    border-color: rgb(200, 200, 200);
+                    padding-left: 20px;
+                  " placeholder="SARS-CoV-2 (COVID-19) Antibodies" required />
             </div>
           </div>
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xxl-2 text-end" style="max-width: 21%">
-              <label class="col-form-label" style="color: rgb(0, 0, 0)"
-                >Description</label
-              >
+          <div class="row" style="margin-bottom: 20px;">
+            <div class="col-xxl-2 text-end" style="max-width: 21%;">
+              <label class="col-form-label" style="color: rgb(0, 0, 0);">
+                Description
+              </label>
             </div>
             <div
               class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center"
-              style="max-width: 73%"
-            >
-              <input
-                type="text"
-                class="flex-grow-1"
-                style="
-                  border-radius: 25px;
-                  background: linear-gradient(rgb(245, 245, 245), white);
-                  border-width: 1px;
-                  border-color: rgb(200, 200, 200);
-                  padding-left: 20px;
-                "
-                required
-              />
+              style="max-width: 73%;">
+              <input id="Description" type="text" class="flex-grow-1" style="
+                    border-radius: 25px;
+                    background: linear-gradient(rgb(245, 245, 245), white);
+                    border-width: 1px;
+                    border-color: rgb(200, 200, 200);
+                    padding-left: 20px;
+                  " required />
             </div>
           </div>
-          <div style="max-width: 90%; margin-right: auto; margin-left: auto">
+          <div style="max-width: 90%; margin-right: auto; margin-left: auto;">
             <!-- Include stylesheet -->
-            <link
-              href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-              rel="stylesheet"
-            />
+            <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
 
             <!-- Create the editor container -->
             <div id="editor"></div>
@@ -287,43 +216,49 @@
 
             <!-- Initialize Quill editor -->
             <script>
-              const editor = new Quill("#editor", {
-                modules: {
-                  toolbar: [
-                    [{ font: [] }, { size: ["small", false, "large", "huge"] }], // custom dropdown
+                const editor = new Quill('#editor', {
+                  modules: {
+                    toolbar: [
+                      [{ font: [] }, { size: ['small', false, 'large', 'huge'] }], // custom dropdown
 
-                    ["bold", "italic", "underline", "strike"],
+                      ['bold', 'italic', 'underline', 'strike'],
 
-                    [{ color: [] }, { background: [] }],
+                      [{ color: [] }, { background: [] }],
 
-                    [{ script: "sub" }, { script: "super" }],
+                      [{ script: 'sub' }, { script: 'super' }],
 
-                    [{ header: 1 }, { header: 2 }, "blockquote", "code-block"],
+                      [{ header: 1 }, { header: 2 }, 'blockquote', 'code-block'],
 
-                    [
-                      { list: "ordered" },
-                      { list: "bullet" },
-                      { indent: "-1" },
-                      { indent: "+1" },
+                      [
+                        { list: 'ordered' },
+                        { list: 'bullet' },
+                        { indent: '-1' },
+                        { indent: '+1' },
+                      ],
+
+                      [{ direction: 'rtl' }, { align: [] }],
+
+                      ['link', 'image', 'video', 'formula'],
+
+                      ['clean'],
                     ],
-
-                    [{ direction: "rtl" }, { align: [] }],
-
-                    ["link", "image", "video", "formula"],
-
-                    ["clean"],
-                  ],
-                },
-                theme: "snow",
-              });
+                  },
+                  theme: 'snow',
+                })
             </script>
           </div>
         </div>
       </div>
     </div>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/chart.min.js"></script>
-    <script src="../assets/js/bs-init.js"></script>
-    <script src="../assets/js/theme.js"></script>
-  </body>
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../assets/js/chart.min.js"></script>
+  <script src="../assets/js/bs-init.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../js/web3.min.js"></script>
+  <script src="../js/truffle-contract.js"></script>
+  <script src="../js/Report.Js"></script>
+</body>
+
 </html>

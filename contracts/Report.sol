@@ -30,15 +30,28 @@ contract Report {
     }
     function getAll(address _patientAddress) public view returns (structReport[] memory)
     {
-        structReport[] memory reports = new structReport[](reportCount+1);
-        for (uint i = 0; i <= reportCount; i++) 
+        uint count = 0;
+        structReport[] memory reports = new structReport[](getPatientReportCount(_patientAddress));
+        for (uint i = 0; i < reportCount; i++) 
         {
              if(keccak256(abi.encodePacked(Reports[i].patientAddress)) == keccak256(abi.encodePacked(_patientAddress)))
              {
-                 reports[i] = Reports[i];
+                 reports[count++] = Reports[i];
              }
         }
         return reports;
+    }
+    function getPatientReportCount(address _patientAddress) private view returns (uint)
+    {
+        uint count = 0;
+        for (uint i = 0; i < reportCount; i++) 
+        {
+             if(keccak256(abi.encodePacked(Reports[i].patientAddress)) == keccak256(abi.encodePacked(_patientAddress)))
+             {
+                 count++;
+             }
+        }
+        return count;
     }
     
 }
