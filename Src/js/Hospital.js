@@ -118,8 +118,8 @@ $(function () {
   });
 });
 
-// const form = document.querySelector('#addHospital');
-// form.addEventListener('submit', event => {
-//   event.preventDefault();
-//   App.addHospital();
-// });
+const form = document.querySelector('#addHospital');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  App.addHospital();
+});

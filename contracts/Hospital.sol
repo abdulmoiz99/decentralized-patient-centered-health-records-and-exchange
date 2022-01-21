@@ -37,8 +37,9 @@ contract Hospital {
         
        if(!checkHospital(_name))
        {
-           hospitalCount ++;
            Hospitals[hospitalCount] = structHospital(hospitalCount, _name, _location, _city, _state,_postalCode, _country, _phoneNumber);
+           hospitalCount ++;
+
            return true;
        }
         else {
