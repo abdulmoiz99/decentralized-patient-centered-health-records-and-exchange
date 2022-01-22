@@ -20,7 +20,7 @@ contract User {
     constructor () {
         //For testing purpose only 
         // Users[usersCount] = structUser("0xasdasdasd",1,"admin","123", true, 0);
-        Users[usersCount] = structUser(0x5e6A85AF29fb1F15939D767c3f5d844cA8b7DE1F, 1,"admin","123", true, 0);
+        Users[usersCount] = structUser(0xE882dB2cF4338Ed26165106D53b573E69154a8e4, 1,"Admin","", true, 0);
         usersCount ++;
     }
     // user login function
@@ -43,6 +43,33 @@ contract User {
         }
         return false;
     }
+
+    function getUsername(address _connectedAccount) public view returns (string memory) 
+    {
+        for(uint i = 0; i < usersCount; i++)
+        {
+            if (Users[i].id == _connectedAccount) 
+            {
+                return Users[i].username;
+            }
+        }
+
+        return "unnamed";
+    }
+
+    function getRoleId(address _connectedAccount) public view returns (uint) 
+    {
+        for(uint i = 0; i < usersCount; i++)
+        {
+            if (Users[i].id == _connectedAccount) 
+            {
+                return Users[i].roleId;
+            }
+        }
+
+        return 0;
+    }
+
     function createUser(string memory _username, string memory _password) public returns (bool)
     {
         if(!checkUsername(_username))
