@@ -127,6 +127,41 @@ contract User {
         return false;
     }
 
+    function toggleActive(address _id) public returns (bool)
+    {
+        for(uint i = 0; i < usersCount; i++){
+
+            if(Users[i].id == _id)
+            {
+                structUser storage user = Users[i];
+                if (user.active == true) 
+                {
+                    user.active = false;
+                }
+                else
+                {
+                    user.active = true;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function changeName(address _id, string memory _newName) public returns (bool) 
+    {
+        for(uint i = 0; i < usersCount; i++){
+
+            if(Users[i].id == _id)
+            {
+                structUser storage user = Users[i];
+                user.username = _newName;
+                return true;
+            }
+        }
+        return false;
+    }
+
     modifier isAuthorized (address account, uint[] memory roles) {
     require(checkUser(account, roles));
     _;

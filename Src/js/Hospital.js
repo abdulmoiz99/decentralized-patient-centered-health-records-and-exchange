@@ -46,11 +46,27 @@ App = {
     });
   },
 
+  toggleActive: async function(address) 
+  {
+    var userInstance = await App.contracts.User.deployed();
+    userInstance.toggleActive(address, {from: App.account}).then(function(result) {
+      if (result)
+      {
+        window.open("../WebPages/hospitals_view.html", "_self");
+      } else {
+        alert(result);
+      }
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+  },
+
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
-        var roles = [1, 2];
+        var roles = [1];
         userInstance
           .checkUser(accounts[0], roles)
           .then(function (authenticated) {
@@ -60,6 +76,12 @@ App = {
                 if (id == 1)
                   document.getElementById("reports-link").style.display =
                     "none";
+                else if (id == 2) {
+                  document.getElementById("hospitals-link").style.display =
+                    "none";
+                  document.getElementById("settings-link").style.display =
+                    "none";
+                }
               });
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
@@ -76,23 +98,22 @@ App = {
                 .then(function (count) {
                   for (var i = 0; i < count.toNumber(); i++) {
                     hospitalInstance.Hospitals(i).then(function (hospital) {
-                      console.log(hospital);
                       var name = hospital[1];
                       var email = hospital[2];
                       var address = hospital[8];
                       userInstance.getStatus(address).then(function (active) {
                         // Render candidate Result
                         var hospitalTemplate = `<tr>
-                      <td style="color: rgb(0,0,0);"><a href="hospitals_update.html" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
+                      <td style="color: rgb(0,0,0);"><a href="hospitals_update.html?id=${address}" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
                       <td style="color: rgb(46,131,242);">${
                         active ? "Active" : "Inactive"
                       }
                       <td style="color: rgb(0,0,0);">${address}<br></td>
                       <td class="text-end">
                           <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="hospitals_input.html">Edit Details</a><a class="dropdown-item" href="#">Set ${
+                            <div class="dropdown-menu"><a class="dropdown-item" href="hospitals_update.html?id=${address}">Edit Details</a><button type = "submit" class="dropdown-item" onClick="App.toggleActive(this.id);" id = "${address}">Set ${
                               active ? "Inactive" : "Active"
-                            }</a></div>
+                            }</button></div>
                           </div>
                       </td>
                   </tr>`;

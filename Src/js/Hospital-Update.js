@@ -46,7 +46,7 @@ App = {
     });
   },
 
-  addHospital: function () {
+  updateHospital: function () {
     var address = $("#address").val();
     var name = $("#name").val();
     var email = $("#email").val();
@@ -58,11 +58,12 @@ App = {
 
     App.contracts.User.deployed()
       .then(function (instance) {
-        return instance.createUser(address, 2, name, "", { from: App.account });
+        console.log(instance);
+        return instance.changeName(address, name, { from: App.account });
       })
       .then(function (result) {
         if (!result) {
-          alert("Address already exists!");
+          alert("Address not found!");
         }
       })
       .catch(function (err) {
@@ -71,7 +72,8 @@ App = {
 
     App.contracts.Hospital.deployed()
       .then(function (instance) {
-        return instance.CreateHospital(
+        return instance.updateHospital(
+          address,
           name,
           email,
           city,
@@ -79,7 +81,6 @@ App = {
           postalCode,
           country,
           phoneNumber,
-          address,
           { from: App.account }
         );
       })
@@ -87,7 +88,7 @@ App = {
         if (result) {
           window.open("../WebPages/hospitals_view.html", "_self");
         } else {
-          console.log(result);
+          alert(result);
         }
       })
       .catch(function (err) {
@@ -97,6 +98,7 @@ App = {
 
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
+    var hospitalInstance = await App.contracts.Hospital.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
         var roles = [1];
@@ -120,10 +122,26 @@ App = {
                 document.getElementById("nav-username").textContent = name;
               });
 
+              const urlParams = new URLSearchParams(window.location.search);
+              const id = urlParams.get("id");
+              document.getElementById("address").value = id;
+
+              hospitalInstance.getHospital(id).then(function (hospital)
+              {
+                  document.getElementById("name").value = hospital[0];
+                  document.getElementById("email").value = hospital[1];
+                  document.getElementById("city").value = hospital[2];
+                  document.getElementById("state").value = hospital[3];
+                  document.getElementById("postalAddress").value = hospital[4];
+                  document.getElementById("country").value = hospital[5];
+                  document.getElementById("phoneNumber").value = hospital[6];
+              });
+
+
               const form = document.querySelector("#addHospital");
               form.addEventListener("submit", (event) => {
                 event.preventDefault();
-                App.addHospital();
+                App.updateHospital();
               });
             } else {
               //Render another page;

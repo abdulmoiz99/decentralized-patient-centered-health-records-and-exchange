@@ -43,20 +43,22 @@ contract Hospital {
             return false; // Hospital with the same name already exist
         }
     }
-    function updateHospital(uint _id, string memory _name, string memory _location, string memory _city, string memory _state, 
+    function updateHospital(string memory _id, string memory _name, string memory _location, string memory _city, string memory _state, 
                             string memory _postalCode, string memory _country, string memory _phoneNumber)  public  returns (bool)
     {
          for(uint i = 0; i < hospitalCount; i++){
 
-            if(keccak256(abi.encodePacked(Hospitals[i].id)) == keccak256(abi.encodePacked(_id)) )
+            if(keccak256(abi.encodePacked(Hospitals[i].accountAddress)) == keccak256(abi.encodePacked(_id)) )
             {
-                Hospitals[i].name = _name;
-                Hospitals[i].email = _location;
-                Hospitals[i].city = _city;
-                Hospitals[i].state = _state;
-                Hospitals[i].postalAddress = _postalCode;
-                Hospitals[i].country = _country;
-                Hospitals[i].phoneNumber = _phoneNumber;
+                structHospital storage hospital = Hospitals[i];
+                hospital.name = _name;
+                hospital.email = _location;
+                hospital.city = _city;
+                hospital.state = _state;
+                hospital.postalAddress = _postalCode;
+                hospital.country = _country;
+                hospital.phoneNumber = _phoneNumber;
+                
                 return true; // record updated successfully
             }
         }
@@ -81,6 +83,24 @@ contract Hospital {
             hospitalList[i] = Hospitals[i];
         }
         return hospitalList;
+    }
+    function getHospital(string memory _address) public view returns (string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        string memory)
+    {
+        for (uint i = 0; i <= hospitalCount; i++) 
+        {
+            if(keccak256(abi.encodePacked(Hospitals[i].accountAddress)) == keccak256(abi.encodePacked(_address)) )
+            {
+                structHospital memory hospital = Hospitals[i];
+                return (hospital.name, hospital.email, hospital.city, hospital.state, hospital.postalAddress, hospital.country, hospital.phoneNumber);
+            }
+        }
+        revert("Not found");
     }
     
 }
