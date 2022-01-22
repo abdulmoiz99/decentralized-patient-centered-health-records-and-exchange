@@ -6,12 +6,13 @@ contract Hospital {
     struct structHospital{
         uint id;
         string name;
-        string location;
+        string email;
         string city;
         string state;
-        string postalCode;
+        string postalAddress;
         string country;
         string phoneNumber;
+        string accountAddress;
     }
     uint hospitalCount = 0;
 
@@ -20,24 +21,20 @@ contract Hospital {
 
     constructor ()
     {
-        CreateHospital("name","location","city","state","postalcode","country","phoneNumber");
-        CreateHospital("name1","location1","city1","state1","postalcode1","country1","phoneNumber1");
-        CreateHospital("name2","location1","city1","state1","postalcode1","country1","phoneNumber1");
-        CreateHospital("name3","location1","city1","state1","postalcode1","country1","phoneNumber1");
 
     }
     function getCount() public view returns(uint)
     {
         return hospitalCount;
     }
-    function CreateHospital(string memory _name, string memory _location, string memory _city, string memory _state, 
-                            string memory _postalCode, string memory _country, string memory _phoneNumber)  public  returns (bool)
+    function CreateHospital(string memory _name, string memory _email, string memory _city, string memory _state, 
+                            string memory _postalAddress, string memory _country, string memory _phoneNumber, string memory _accountAddress)  public  returns (bool)
     {
 
         
-       if(!checkHospital(_name))
+       if(!checkHospital(_accountAddress))
        {
-           Hospitals[hospitalCount] = structHospital(hospitalCount, _name, _location, _city, _state,_postalCode, _country, _phoneNumber);
+           Hospitals[hospitalCount] = structHospital(hospitalCount, _name, _email, _city, _state,_postalAddress, _country, _phoneNumber, _accountAddress);
            hospitalCount ++;
 
            return true;
@@ -54,10 +51,10 @@ contract Hospital {
             if(keccak256(abi.encodePacked(Hospitals[i].id)) == keccak256(abi.encodePacked(_id)) )
             {
                 Hospitals[i].name = _name;
-                Hospitals[i].location = _location;
+                Hospitals[i].email = _location;
                 Hospitals[i].city = _city;
                 Hospitals[i].state = _state;
-                Hospitals[i].postalCode = _postalCode;
+                Hospitals[i].postalAddress = _postalCode;
                 Hospitals[i].country = _country;
                 Hospitals[i].phoneNumber = _phoneNumber;
                 return true; // record updated successfully
@@ -65,11 +62,11 @@ contract Hospital {
         }
         return false; // invalid hospital name
     }
-    function checkHospital(string memory _name) public view  returns (bool)
+    function checkHospital(string memory _address) public view  returns (bool)
     {
         for(uint i = 0; i < hospitalCount; i++){
 
-            if(keccak256(abi.encodePacked(Hospitals[i].name)) == keccak256(abi.encodePacked(_name)) )
+            if(keccak256(abi.encodePacked(Hospitals[i].accountAddress)) == keccak256(abi.encodePacked(_address)) )
             {
                 return true;
             }

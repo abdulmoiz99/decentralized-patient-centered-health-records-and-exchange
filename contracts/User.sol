@@ -21,7 +21,7 @@ contract User {
         //For testing purpose only 
         // Users[usersCount] = structUser("0xasdasdasd",1,"admin","123", true, 0);
         Users[usersCount] = structUser(0xE882dB2cF4338Ed26165106D53b573E69154a8e4, 1,"Admin","", true, 0);
-        usersCount ++;
+        usersCount++;
     }
     // user login function
     function checkUser(address _connectedAccount, uint[] memory _roles)  public view returns (bool)
@@ -33,7 +33,7 @@ contract User {
             // {
             //     return true;
             // }
-            if (Users[i].id == _connectedAccount) 
+            if (Users[i].id == _connectedAccount && Users[i].active == true) 
             {
                 for (uint j = 0; j < _roles.length; j++) 
                 {
@@ -70,12 +70,12 @@ contract User {
         return 0;
     }
 
-    function createUser(string memory _username, string memory _password) public returns (bool)
+    function createUser(address _id, uint _roleId, string memory _username, string memory _password) public returns (bool)
     {
-        if(!checkUsername(_username))
+        if(!checkAddress(_id))
         {
-            Users[usersCount] = structUser(msg.sender,1,_username,_password, true, 0);
-            usersCount ++;
+            Users[usersCount] = structUser(_id, _roleId, _username, _password, true, block.timestamp);
+            usersCount++;
             return true;
         }
         else 
@@ -94,6 +94,17 @@ contract User {
         }
         return false;
     }
+    function checkAddress(address _id) public view returns (bool)
+    {
+        for(uint i = 0; i < usersCount; i++){
+
+            if(Users[i].id == _id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     function getAll() public view returns (structUser[] memory)
     {
         structUser[] memory UserList = new structUser[](usersCount+1);
@@ -102,6 +113,18 @@ contract User {
             UserList[i] = Users[i];
         }
         return UserList;
+    }
+
+    function getStatus(address _id) public view returns (bool)
+    {
+        for(uint i = 0; i < usersCount; i++){
+
+            if(Users[i].id == _id)
+            {
+                return Users[i].active;
+            }
+        }
+        return false;
     }
 
     modifier isAuthorized (address account, uint[] memory roles) {

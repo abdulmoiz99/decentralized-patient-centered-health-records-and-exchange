@@ -46,40 +46,6 @@ App = {
     });
   },
 
-  addHospital: function () {
-    var name = $("#name").val();
-    var location = $("#location").val();
-    var city = $("#city").val();
-    var state = $("#state").val();
-    var postalCode = $("#postalCode").val();
-    var country = $("#country").val();
-    var phoneNumber = $("#phoneNumber").val();
-
-    App.contracts.Hospital.deployed()
-      .then(function (instance) {
-        return instance.CreateHospital(
-          name,
-          location,
-          city,
-          state,
-          postalCode,
-          country,
-          phoneNumber,
-          { from: App.account }
-        );
-      })
-      .then(function (result) {
-        if (result) {
-          window.open("../WebPages/hospitals_input.html", "_self");
-        } else {
-          console.log(result);
-        }
-      })
-      .catch(function (err) {
-        console.error(err);
-      });
-  },
-
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
     web3.eth.getAccounts((err, accounts) => {
@@ -108,30 +74,36 @@ App = {
                   return hospitalInstance.getCount();
                 })
                 .then(function (count) {
-                  for (var i = 1; i <= count.toNumber(); i++) {
+                  for (var i = 0; i < count.toNumber(); i++) {
                     hospitalInstance.Hospitals(i).then(function (hospital) {
+                      console.log(hospital);
                       var name = hospital[1];
-                      var location = hospital[2];
-                      var email = "aku@hospital.com";
-                      var address =
-                        "0xfb1BF9cFeCe8727658b61b57B45dd17bDc08BfC2";
-                      // Render candidate Result
-                      var hospitalTemplate = `<tr>
-                  <td><input type="checkbox"></td>
-                  <td style="color: rgb(0,0,0);"><a href="hospitals_update.html" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
-                  <td style="color: rgb(46,131,242);">Active<label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">Last login: 14/APR/2020</label></td>
-                  <td style="color: rgb(0,0,0);">${address}<br></td>
-                  <td class="text-end">
-                      <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="hospitals_input.html">Edit Details</a><a class="dropdown-item" href="#">Delete Record</a></div>
-                      </div>
-                  </td>
-              </tr>`;
-                      tbody.append(hospitalTemplate);
+                      var email = hospital[2];
+                      var address = hospital[8];
+                      userInstance.getStatus(address).then(function (active) {
+                        // Render candidate Result
+                        var hospitalTemplate = `<tr>
+                      <td style="color: rgb(0,0,0);"><a href="hospitals_update.html" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
+                      <td style="color: rgb(46,131,242);">${
+                        active ? "Active" : "Inactive"
+                      }
+                      <td style="color: rgb(0,0,0);">${address}<br></td>
+                      <td class="text-end">
+                          <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="hospitals_input.html">Edit Details</a><a class="dropdown-item" href="#">Set ${
+                              active ? "Inactive" : "Active"
+                            }</a></div>
+                          </div>
+                      </td>
+                  </tr>`;
+                        tbody.append(hospitalTemplate);
+                      });
                     });
                   }
+                  document.getElementById(
+                    "dataTable_info"
+                  ).textContent = `Showing ${count.toNumber()} out of ${count.toNumber()} result(s)`;
                 });
-
             } else {
               //Render another page;
               document.body.style = "background: #359AF2;";
@@ -155,5 +127,3 @@ $(function () {
     setTimeout(() => App.render(), 500);
   });
 });
-
-

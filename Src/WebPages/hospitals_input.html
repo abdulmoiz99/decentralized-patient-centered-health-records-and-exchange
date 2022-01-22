@@ -41,10 +41,16 @@
                         <h5 class="d-inline" style="color: rgb(0,0,0);margin-left: 35px;">Add Hospital</h5>
                     </div>
                     <div class="col-md-6 text-end" style="margin-bottom: 25px;">
-                        <h6 class="d-inline" style="color: rgb(0,0,0);margin-left: 0px;margin-right: 25px;">0xfb1BF9cFeCe8727658b61b57B45dd17bDc08BfC2</h6><button class="btn btn-primary text-center shadow-sm w-100" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 125px;">Save</button>
+                        <button class="btn btn-primary text-center shadow-sm w-100" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 125px;">Save</button>
                     </div>
                 </div>
                 <div>
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Address</label></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;">
+                            <input id = "address" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="0xfb1BF9cFeCe8727658b61b57B45dd17bDc08BfC2" required = "" pattern="^0x[a-fA-F0-9]{40}$">
+                        </div>
+                    </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Name</label></div>
                         <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;">
@@ -52,12 +58,8 @@
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
-                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Address</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "location" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address" required = "" ></div>
-                    </div>
-                    <div class="row" style="margin-bottom: 10px;">
-                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">&nbsp;</label></div>
-                        <div class="col d-sm-flex d-md-flex d-xl-flex align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address Line 2" ></div>
+                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Hospital Email</label></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "email" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="info@example.com" required = "" ></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">City</label></div>
@@ -68,8 +70,8 @@
                         <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "state" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Sindh" required = ""></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
-                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Postal Code</label></div>
-                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "postalCode" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="75330" required = ""></div>
+                        <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Postal Address</label></div>
+                        <div class="col d-flex d-sm-flex d-md-flex d-xl-flex align-items-center align-items-sm-center align-items-md-center align-items-xl-center" style="max-width: 73%;"><input id = "postalAddress" class="flex-grow-1" type="text" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);border-width: 1px;border-color: rgb(200,200,200);padding-left: 20px;" placeholder="Street Address" required = ""></div>
                     </div>
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-xxl-2 text-end" style="max-width: 21%;"><label class="col-form-label" style="color: rgb(0,0,0);">Country</label></div>
@@ -92,7 +94,7 @@
 <script src="../assets/js/theme.js"></script>
 <script src="../js/web3.min.js"></script>
 <script src="../js/truffle-contract.js"></script>
-<script src="../js/Hospital.js"></script>
+<script src="../js/Hospital-Input.js"></script>
 </body>
 
 </html>
