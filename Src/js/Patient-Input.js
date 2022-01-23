@@ -47,6 +47,85 @@ App = {
     });
   },
 
+  addPatient: function () {
+    var address = $("#address").val();
+    var fullName = $("#fullName").val();
+    var dateOfBirth = $("#dateOfBirth").val();
+    var CNIC = $("#CNIC").val();
+    var creatorAddress = App.account;
+    var PhoneNo = $("#PhoneNo").val();
+    var email = $("#email").val();
+    var status = $("#status").find(":selected").text();
+    var gender = $("#gender").find(":selected").text();
+
+    //Medical Conditions
+    var dependence = $("#formCheck-1").is(":checked");
+    var seizure = $("#formCheck-8").is(":checked");
+    var heartDisease = $("#formCheck-6").is(":checked");
+    var blackOut = $("#formCheck-4").is(":checked");
+    var stroke = $("#formCheck-12").is(":checked");
+    var VFAI = $("#formCheck-20").is(":checked");
+    var diabetes = $("#formCheck-17").is(":checked");
+    var mentalIllness = $("#formCheck-21").is(":checked");
+    var alzheimer = $("#formCheck-23").is(":checked");
+    var sleepingDisorder = $("#formCheck-25").is(":checked");
+    var other = $("#formCheck-30").is(":checked")
+      ? $("#other-textbox").val()
+      : "";
+
+    App.contracts.Patient.deployed()
+      .then(function (instance) {
+        return instance.AddPatient(
+          fullName,
+          dateOfBirth,
+          CNIC,
+          creatorAddress,
+          PhoneNo,
+          email,
+          status,
+          gender,
+          address,
+          { from: App.account }
+        );
+      })
+      .then(function (result) {
+        if (result) {
+          App.contracts.Patient.deployed()
+            .then(function (instance) {
+              return instance.AddMedicalCondition(
+                dependence,
+                seizure,
+                heartDisease,
+                blackOut,
+                stroke,
+                VFAI,
+                diabetes,
+                mentalIllness,
+                alzheimer,
+                sleepingDisorder,
+                other,
+                { from: App.account }
+              );
+            })
+            .then(function (result) {
+              if (result) {
+                window.open("../WebPages/patients_view.html", "_self");
+              } else {
+                console.log(result);
+              }
+            })
+            .catch(function (err) {
+              console.error(err);
+            });
+        } else {
+          console.log(result);
+        }
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
+  },
+
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
     web3.eth.getAccounts((err, accounts) => {
@@ -71,42 +150,11 @@ App = {
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
               });
-              var patientInstance;
-              var tbody = $("#patients");
-
-              // Load contract data
-              App.contracts.Patient.deployed()
-                .then(function (instance) {
-                  patientInstance = instance;
-                  return patientInstance.patientCount();
-                })
-                .then(function (count) {
-                  for (var i = 0; i < count.toNumber(); i++) {
-                    patientInstance.Patients(i).then(function (patient) {
-                      var name = patient[1];
-                      var dob = patient[2];
-                      var email = patient[6];
-                      var status = patient[7];
-                      var address = patient[9];
-                      // Render candidate Result
-                      var patientTemplate = `<tr>
-                        <td style="color: rgb(0,0,0);"><a href="patients_input.html" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
-                        <td style="color: rgb(46,131,242);">${status}<label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">Date of Birth: ${dob}</label></td>
-                        <td style="color: rgb(0,0,0);">${address}<br></td>
-                        <td class="text-end">
-                            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="#">Edit Details</a></div>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="#">Edit Details</a></div>
-                            </div>
-                        </td>
-                    </tr>`;
-                      tbody.append(patientTemplate);
-                    });
-                  }
-                  document.getElementById(
-                    "dataTable_info"
-                  ).textContent = `Showing ${count.toNumber()} out of ${count.toNumber()} result(s)`;
-                });
+              const form = document.querySelector("#addPatient");
+              form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                App.addPatient();
+              });
             } else {
               //Render another page;
               document.body.style = "background: #359AF2;";
@@ -121,6 +169,17 @@ App = {
           });
       }
     });
+  },
+
+  toggleInput: function () {
+    const checkbox = document.getElementById("formCheck-30");
+    const textbox = document.getElementById("other-textbox");
+
+    if (checkbox.checked) {
+      textbox.disabled = false;
+    } else {
+      textbox.disabled = true;
+    }
   },
 };
 

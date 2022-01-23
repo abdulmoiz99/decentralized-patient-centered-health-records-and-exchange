@@ -37,7 +37,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search Patients by Name, Address" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);padding-left: 20px;"></div>
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><input type="search" class="form-control form-control-sm" id = "search-bar" aria-controls="dataTable" onkeyup="Search()" placeholder="Search Patients by Name, Address" style="border-radius: 25px;background: linear-gradient(rgb(245,245,245), white);padding-left: 20px;"></div>
                     </div>
                     <div class="col-md-6 text-end"><a href="patients_input.html"><button class="btn btn-primary text-center shadow-sm w-100" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 125px;">Add Patient</button></a></div>
                 </div>
@@ -45,7 +45,6 @@
                     <table class="table my-0" id="dataTable">
                         <thead>
                             <tr>
-                                <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);"><input type="checkbox"></th>
                                 <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Name</th>
                                 <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Status</th>
                                 <th style="background: rgba(53,154,242,0.05);color: rgb(46,131,242);">Address</th>
@@ -61,15 +60,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 align-self-center">
-                        <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p>
+                        <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing - out of - result(s)</p>
                     </div>
                     <div class="col-md-6">
-                        <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                            <ul class="pagination">
-                                <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -83,6 +76,7 @@
     <script src="../js/web3.min.js"></script>
     <script src="../js/truffle-contract.js"></script>
     <script src="../js/Patient.js"></script>
+    <script src="../js/Search.js"></script>
 </body>
 
 </html>

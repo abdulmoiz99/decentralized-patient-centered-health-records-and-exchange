@@ -8,36 +8,31 @@ contract Patient {
         string fullName;
         string dateOfBirth;
         string CNIC;
-        uint hospitalId;
+        string creatorAddress;
         string PhoneNo;
         string email;
         string status;
         string gender;
-       // commonMedicalConditions MedicalConditions;
+        string accountAddress;
+        uint dateCreated;
     }
     struct commonMedicalConditions{
-        bool AlcoholDependence;
-        bool DurgDependence;
-        bool SeizureCerebral;
-        bool SeizureAlcoholRelated;
-        bool HeatDisease;
+        bool AlcoholOrDrugDependence;
+        bool Seizure;
+        bool HeartDisease;
         bool Blackout;
         bool Stroke;
-        bool VisualImpairment;
-        bool VisualAcuityImpairment;
-        bool VisualFieldImpairment;
+        bool VisualFieldOrAcuityImpairment;
         bool Diabetes;
         bool MentalOrEmotionalIllness;
         bool DementiaOrAlzheimer;
-        bool SleepApnea;
-        bool Narcolesy;
-        bool MotorFucntionAbilityImpaired;
-        bool Other;
+        bool SleepApneaOrNarcolepsy;
+        string other;
     }
     struct structPatientReport{
         uint reportId;
         address patientAddress;
-        string Tittle;
+        string Title;
         string Description;
         string Report;
     }
@@ -45,20 +40,37 @@ contract Patient {
     uint public reportCount = 0;
 
     mapping(uint => structPatient) public Patients;
+    mapping(uint => commonMedicalConditions) public MedicalConditions;
     mapping(uint => structPatientReport) public PatientReports;
 
-
     constructor () {
-        AddPatient("AbdulMoiz", "08/05/2025", "42401123123123", 1, "923142313111", "abdulmoiz@gmail.com", "healthy", "male");
     }
-     function AddPatient( string memory _fullname, string memory _dateOfBirth, string memory _cnic, 
-                        uint _hospitalId, string memory _phoneNo, string memory _email, string memory _status, string memory _gender) public returns (bool)
+     function AddPatient(string memory _fullName, string memory _dateOfBirth, string memory _cnic, 
+                        string memory _hospitalId, string memory _phoneNo, string memory _email, string memory _status, string memory _gender, string memory _accountAddress) public returns (bool)
     {
-            Patients[patientCount] = structPatient( patientCount,_fullname, _dateOfBirth,  _cnic,  _hospitalId, _phoneNo, _email,  _status, _gender); 
-            patientCount ++;
+            structPatient memory patient;
+            patient.fullName = _fullName;
+            patient.dateOfBirth = _dateOfBirth;
+            patient.CNIC = _cnic;
+            patient.creatorAddress = _hospitalId;
+            patient.PhoneNo = _phoneNo;
+            patient.email = _email;
+            patient.status = _status;
+            patient.gender = _gender;
+            patient.accountAddress = _accountAddress;
+            patient.dateCreated = block.timestamp;
+            Patients[patientCount] = patient;  
             return true;
       
     }
+
+    function AddMedicalCondition(bool _dependence, bool _seizure, bool _heartDisease, bool _blackout, bool _stroke, bool _VFAI, bool _diabetes, bool _mentalIllness, bool _dementia, bool _sleepApneaOrNarcolepsy, string memory _other) public returns (bool)
+    {
+        MedicalConditions[patientCount] = commonMedicalConditions(_dependence, _seizure, _heartDisease, _blackout, _stroke, _VFAI, _diabetes, _mentalIllness, _dementia, _sleepApneaOrNarcolepsy, _other);
+        patientCount++;
+        return true;
+    }
+
     function getAll() public view returns (structPatient[] memory)
     {
         structPatient[] memory hospitalList = new structPatient[](patientCount+1);
