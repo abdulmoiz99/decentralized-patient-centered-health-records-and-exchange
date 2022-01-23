@@ -47,12 +47,11 @@ App = {
     });
   },
 
-  addPatient: function () {
+  updatePatient: function () {
     var address = $("#address").val();
     var fullName = $("#fullName").val();
     var dateOfBirth = $("#dateOfBirth").val();
     var CNIC = $("#CNIC").val();
-    var creatorAddress = App.account;
     var PhoneNo = $("#PhoneNo").val();
     var email = $("#email").val();
     var status = $("#status").find(":selected").text();
@@ -75,7 +74,7 @@ App = {
 
     App.contracts.User.deployed()
       .then(function (instance) {
-        return instance.createUser(address, 3, fullName, "", { from: App.account });
+        return instance.changeName(address, fullName, { from: App.account });
       })
       .then(function (result) {
         if (!result) {
@@ -88,16 +87,15 @@ App = {
 
     App.contracts.Patient.deployed()
       .then(function (instance) {
-        return instance.AddPatient(
+        return instance.updatePatient(
+          address,
           fullName,
           dateOfBirth,
           CNIC,
-          creatorAddress,
           PhoneNo,
           email,
           status,
           gender,
-          address,
           { from: App.account }
         );
       })
@@ -105,7 +103,7 @@ App = {
         if (result) {
           App.contracts.Patient.deployed()
             .then(function (instance) {
-              return instance.AddMedicalCondition(
+              return instance.updateConditions(
                 dependence,
                 seizure,
                 heartDisease,
@@ -141,6 +139,7 @@ App = {
 
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
+    var patientInstance = await App.contracts.Patient.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
         var roles = [1, 2];
@@ -163,10 +162,59 @@ App = {
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
               });
+
+              const urlParams = new URLSearchParams(window.location.search);
+              const id = urlParams.get("id");
+              document.getElementById("address").value = id;
+
+              patientInstance.getPatient(id).then(function (patient) {
+                document.getElementById("fullName").value = patient[0];
+                document.getElementById("dateOfBirth").value = new Date(
+                  patient[1]
+                )
+                  .toISOString()
+                  .split("T")[0];
+                document.getElementById("CNIC").value = patient[2];
+                document.getElementById("PhoneNo").value = patient[3];
+                document.getElementById("email").value = patient[4];
+
+                if (patient[5] == "Sick") $("#status").val("Sick");
+                else if (patient[5] == "Deceased") $("#status").val("Deceased");
+
+                if (patient[6] == "Female") $("#gender").val("Female");
+                else if (patient[6] == "Other") $("#gender").val("Other");
+
+                patientInstance
+                .getPatientConditions(patient[7].toNumber())
+                .then(function (condition) {
+                  $("#formCheck-1").prop("checked", condition[0]);
+                  $("#formCheck-8").prop("checked", condition[1]);
+                  $("#formCheck-6").prop("checked", condition[2]);
+                  $("#formCheck-4").prop("checked", condition[3]);
+                  $("#formCheck-12").prop("checked", condition[4]);
+                  $("#formCheck-20").prop("checked", condition[5]);
+                  $("#formCheck-17").prop("checked", condition[6]);
+                  $("#formCheck-21").prop("checked", condition[7]);
+                  $("#formCheck-23").prop("checked", condition[8]);
+                  $("#formCheck-25").prop("checked", condition[9]);
+
+                  if (condition[10] == "") {
+                    $("#formCheck-30").prop("checked", false);
+                  }
+                  else {
+                    $("#formCheck-30").prop("checked", true);
+                    $("#other-textbox").prop("disabled", false);
+                    $("#other-textbox").prop("value", condition[10]);
+                  }
+                });
+              });
+
+              
+
               const form = document.querySelector("#addPatient");
               form.addEventListener("submit", (event) => {
                 event.preventDefault();
-                App.addPatient();
+                App.updatePatient();
               });
             } else {
               //Render another page;

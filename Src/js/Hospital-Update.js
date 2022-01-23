@@ -58,7 +58,6 @@ App = {
 
     App.contracts.User.deployed()
       .then(function (instance) {
-        console.log(instance);
         return instance.changeName(address, name, { from: App.account });
       })
       .then(function (result) {

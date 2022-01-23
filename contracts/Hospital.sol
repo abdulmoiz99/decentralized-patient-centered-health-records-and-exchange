@@ -92,7 +92,7 @@ contract Hospital {
         string memory,
         string memory)
     {
-        for (uint i = 0; i <= hospitalCount; i++) 
+        for (uint i = 0; i < hospitalCount; i++) 
         {
             if(keccak256(abi.encodePacked(Hospitals[i].accountAddress)) == keccak256(abi.encodePacked(_address)) )
             {

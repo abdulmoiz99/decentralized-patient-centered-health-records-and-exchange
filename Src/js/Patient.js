@@ -90,13 +90,12 @@ App = {
                       var address = patient[9];
                       // Render candidate Result
                       var patientTemplate = `<tr>
-                        <td style="color: rgb(0,0,0);"><a href="patients_input.html" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
+                        <td style="color: rgb(0,0,0);"><a href="patients_update.html?id=${address}" style="text-decoration: none;color: rgb(0,0,0);">${name}</a><label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">${email}</label></td>
                         <td style="color: rgb(46,131,242);">${status}<label class="form-label d-block" style="font-size: 12px;color: rgb(46,131,242);">Date of Birth: ${dob}</label></td>
                         <td style="color: rgb(0,0,0);">${address}<br></td>
                         <td class="text-end">
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="background: rgb(255,255,255);color: rgb(46,131,242);border-color: rgb(255,255,255);"></button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="#">Edit Details</a></div>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="#">Edit Details</a></div>
+                                <div class="dropdown-menu"><a class="dropdown-item" href="patients_report.html">View Timeline</a><a class="dropdown-item" href="patients_update.html?id=${address}">Edit Details</a></div>
                             </div>
                         </td>
                     </tr>`;
