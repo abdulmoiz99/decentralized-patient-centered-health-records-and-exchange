@@ -13,7 +13,7 @@ contract Patient {
         string email;
         string status;
         string gender;
-        string accountAddress;
+        address accountAddress;
         uint dateCreated;
     }
     struct commonMedicalConditions{
@@ -47,7 +47,7 @@ contract Patient {
     constructor () {
     }
      function AddPatient(string memory _fullName, string memory _dateOfBirth, string memory _cnic, 
-                        string memory _hospitalId, string memory _phoneNo, string memory _email, string memory _status, string memory _gender, string memory _accountAddress) public returns (bool)
+                        string memory _hospitalId, string memory _phoneNo, string memory _email, string memory _status, string memory _gender, address _accountAddress) public returns (bool)
     {
             structPatient memory patient;
             patient.id = patientCount;
@@ -110,20 +110,20 @@ contract Patient {
         return count;
     }
 
-    function getPatient(string memory _address) public view returns (string memory,
+    function getPatient(address _address) public view returns (string memory,
         string memory,
         string memory,
         string memory,
         string memory,
         string memory,
-        string memory, uint id)
+        string memory, uint id, string memory, uint)
     {
         for (uint i = 0; i < patientCount; i++) 
         {
-            if(keccak256(abi.encodePacked(Patients[i].accountAddress)) == keccak256(abi.encodePacked(_address)) )
+            if(Patients[i].accountAddress == _address)
             {
                 structPatient memory patient = Patients[i];
-                return (patient.fullName, patient.dateOfBirth, patient.CNIC, patient.PhoneNo, patient.email, patient.status, patient.gender, patient.id);
+                return (patient.fullName, patient.dateOfBirth, patient.CNIC, patient.PhoneNo, patient.email, patient.status, patient.gender, patient.id, patient.creatorAddress, patient.dateCreated);
             }
         }
         revert("Not found");

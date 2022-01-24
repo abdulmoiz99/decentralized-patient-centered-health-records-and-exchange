@@ -142,29 +142,42 @@ App = {
     var patientInstance = await App.contracts.Patient.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
-        var roles = [1, 2];
+        var roles = [1, 2, 3];
         userInstance
           .checkUser(accounts[0], roles)
           .then(function (authenticated) {
             if (authenticated) {
+              const urlParams = new URLSearchParams(window.location.search);
+              const id = urlParams.get("id");
               //If the user is authenticated
-              userInstance.getRoleId(accounts[0]).then(function (id) {
-                if (id == 1)
+              userInstance.getRoleId(accounts[0]).then(function (roleId) {
+                if (roleId == 1)
                   document.getElementById("reports-link").style.display =
                     "none";
-                else if (id == 2) {
+                else if (roleId == 2) {
                   document.getElementById("hospitals-link").style.display =
                     "none";
                   document.getElementById("settings-link").style.display =
                     "none";
                 }
+                else if (roleId == 3) {
+                  if (accounts[0] != id) window.open(`../WebPages/patients_update.html?id=${accounts[0]}`,"_self");
+
+                  document.querySelector("nav").style.display = "none";
+                  document.querySelector("#save-button").style.display = "none";
+                  document.querySelector("#back-button").href = `patients_report.html?id=${accounts[0]}`;
+                  document.querySelector("#heading").innerText = "My Initial Summary";
+                  $(document).ready(function(){
+                    $("input[type=text], [type=date]").prop("disabled", true);
+                    $("select").attr('disabled', true);
+                    $("#addPatient :input[type=checkbox]").on("click", false);
+                });
+                }
               });
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
               });
-
-              const urlParams = new URLSearchParams(window.location.search);
-              const id = urlParams.get("id");
+            
               document.getElementById("address").value = id;
 
               patientInstance.getPatient(id).then(function (patient) {

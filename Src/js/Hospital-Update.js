@@ -110,12 +110,6 @@ App = {
                 if (id == 1)
                   document.getElementById("reports-link").style.display =
                     "none";
-                else if (id == 2) {
-                  document.getElementById("hospitals-link").style.display =
-                    "none";
-                  document.getElementById("settings-link").style.display =
-                    "none";
-                }
               });
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;

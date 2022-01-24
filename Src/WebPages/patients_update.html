@@ -37,11 +37,11 @@
         <div class="card shadow" style="margin-top: 25px;border-radius: 25px;">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6 text-nowrap"><a href="patients_view.html" style="text-decoration: none;"><button class="btn btn-primary shadow-sm d-inline" type="button" style="width: 90px;color: #0F2440;background: rgb(255,255,255);border-color: rgba(15,36,64,0.5);border-radius: 25px;margin-left: 0px;margin-top: 0px;"><i class="fa fa-arrow-left" style="color: rgb(53,154,242);margin-right: 2px;"></i>&nbsp;Back</button></a>
-                        <h5 class="d-inline" style="color: rgb(0,0,0);margin-left: 35px;">Add Patient</h5>
+                    <div class="col-md-6 text-nowrap"><a id = "back-button" href="patients_view.html" style="text-decoration: none;"><button class="btn btn-primary shadow-sm d-inline" type="button" style="width: 90px;color: #0F2440;background: rgb(255,255,255);border-color: rgba(15,36,64,0.5);border-radius: 25px;margin-left: 0px;margin-top: 0px;"><i class="fa fa-arrow-left" style="color: rgb(53,154,242);margin-right: 2px;"></i>&nbsp;Back</button></a>
+                        <h5 id = "heading" class="d-inline" style="color: rgb(0,0,0);margin-left: 35px;">Update Patient</h5>
                     </div>
                     <div class="col-md-6 text-end" style="margin-bottom: 25px;">
-                        <button class="btn btn-primary text-center shadow-sm w-100" id = "addPatient" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 125px;">Save</button>
+                        <button id = "save-button" class="btn btn-primary text-center shadow-sm w-100" id = "addPatient" type="submit" style="border-radius: 25px;background: #2E83F2;max-width: 125px;">Save</button>
                     </div>
                 </div>
                 <div>
@@ -93,8 +93,7 @@
                         <div class="card-body">
                             <div class="table-responsive table mt-2" id="dataTable-1" role="grid" aria-describedby="dataTable_info" style="border-bottom-color: rgba(255,255,255,0);">
                                 <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr></tr>
+                                    <thead>                         
                                     </thead>
                                     <tbody style="border-bottom-color: rgba(255,255,255,0);">
                                         <tr>
