@@ -64,7 +64,13 @@ App = {
           .then(function (authenticated) {
             if (authenticated) {
               const urlParams = new URLSearchParams(window.location.search);
-              const address = urlParams.get("id");
+              const reportId = urlParams.get("id");
+
+              reportInstance.getPatientReport(reportId).then(function (report) {
+                document.querySelector(
+                  "#back-button"
+                ).href = `patients_report.html?id=${report[3]}`;
+              });
 
               userInstance.getRoleId(accounts[0]).then(function (id) {
                 if (id == 1)
@@ -76,95 +82,40 @@ App = {
                   document.getElementById("settings-link").style.display =
                     "none";
                 } else if (id == 3) {
-                  if (accounts[0] != address)
-                    window.open(
-                      `../WebPages/patients_report.html?id=${accounts[0]}`,
-                      "_self"
-                    );
-
-                  document.querySelector("nav").style.display = "none";
-                  document.querySelector("#back-button").style.display = "none";
+                  reportInstance
+                    .isPatientReport(reportId, accounts[0])
+                    .then(function (right) {
+                      if (!right) {
+                        document.body.style = "background: #359AF2;";
+                        document.body.innerHTML = `<section class="login-clean" style="background: #359AF2;">
+              <div class="logo" style="text-align: center;"><i class="fa fa-heartbeat" style="font-size: 40px;color: rgb(255,255,255);text-align: left;margin-left: 0px;margin-right: 5px;"></i><label class="form-label" style="color: rgb(255,255,255);font-size: 35px;margin-left: 5px;">MyApp</label></div>
+              <form id = "login" style="border-radius: 25px;box-shadow: 0px 4px 4px rgba(0,0,0,0.25);max-width: 450px;margin-top: 30px;">
+                  <p class="text-center" style="color: #0F2440;">This report doesn't belong to you. Please sign in with right patient account in MetaMask and click Reload.</p>  
+                  <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100" type="submit" style="border-radius: 25px;background: #2E83F2;margin-top: 40px;" onClick="window.location.reload();">Reload</button></div>
+              </form>
+          </section>`;
+                      } else {
+                        document.querySelector("nav").style.display = "none";
+                        reportInstance
+                          .getPatientReport(reportId)
+                          .then(function (report) {
+                            var date = new Date(report[4] * 1000);
+                            document.getElementById("title").textContent =
+                              report[0];
+                            document.getElementById("description").textContent =
+                              report[1];
+                            document.getElementById("dated").textContent = date;
+                            document.getElementsByClassName(
+                              "ql-editor"
+                            )[0].innerHTML = report[2];
+                          });
+                      }
+                    });
                 }
               });
 
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
-              });
-
-              patientInstance.getPatient(address).then(function (patient) {
-                document.getElementById("patient-name").innerText = patient[0];
-                const timeline = document.querySelector("ul.timeline");
-                var date = new Date(patient[9].toNumber() * 1000);
-                timeline.innerHTML = `<li id = "initial" class = "timeline-inverted">
-                <div class="timeline-badge${App.getRandomColor()}">
-                  <label style="font-size: x-small">${date.toLocaleDateString(
-                    "en-US"
-                  )}</label>
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4 class="timeline-title">
-                      <a
-                        href="patients_update.html?id=${address}"
-                        style="text-decoration: none"
-                        >Initial Summary</a
-                      >
-                    </h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p>
-                      This summary is created by ${
-                        patient[8]
-                      }. Please click the link above to see the details.
-                    </p>
-                  </div>
-                </div>
-              </li>`;
-
-                //Will be binded with Patient Reports
-                reportInstance.getCount().then(async function (count) {
-                  for (var i = 0; i < count.toNumber(); i++) {
-
-                    var oldHTML =
-                      document.querySelector("ul.timeline").innerHTML;
-                    var inverted = i % 2 == 0 ? "" : "-inverted";
-
-                    await reportInstance
-                      .isPatientReport(i, address)
-                      .then(async function (isRight) {
-                        if (isRight) {
-                          await reportInstance
-                            .getPatientReport(i)
-                            .then(function (report) {
-                              var date = new Date(report[4].toNumber() * 1000);
-                              document.querySelector("ul.timeline").innerHTML =
-                                `<li class = "timeline${inverted}">
-                                    <div class="timeline-badge${App.getRandomColor()}">
-                                      <label style="font-size: x-small">${date.toLocaleDateString(
-                                        "en-US")}</label>
-                                    </div>
-                                    <div class="timeline-panel">
-                                      <div class="timeline-heading">
-                                        <h4 class="timeline-title">
-                                          <a
-                                            href="patients_report_details.html?id=${i}"
-                                            style="text-decoration: none"
-                                            >${report[0]}</a
-                                          >
-                                        </h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                        <p>
-                                          ${report[1]}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </li>` + oldHTML;
-                            });
-                        }
-                    });
-                  }
-                });
               });
             } else {
               //Render another page;

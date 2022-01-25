@@ -73,14 +73,13 @@ contract Patient {
         return true;
     }
 
-    function getAll() public view returns (structPatient[] memory)
+    function getPatientCount() public view returns (uint) {
+        return patientCount;
+    }
+
+    function getPatientNameAddress(uint id) public view returns (string memory, address)
     {
-        structPatient[] memory hospitalList = new structPatient[](patientCount+1);
-        for (uint i = 0; i <patientCount; i++) 
-        {
-            hospitalList[i] = Patients[i];
-        }
-        return hospitalList;
+        return (Patients[id].fullName, Patients[id].accountAddress);
     }
     function addReport(address _patientAddress, string memory _tittle, string memory _description, string memory _report) public returns (bool) {
             
@@ -109,6 +108,7 @@ contract Patient {
         }
         return count;
     }
+
 
     function getPatient(address _address) public view returns (string memory,
         string memory,
