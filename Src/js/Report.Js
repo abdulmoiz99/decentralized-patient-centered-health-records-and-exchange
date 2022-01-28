@@ -1,3 +1,11 @@
+var ipfs_http_client = require('ipfs-http-client');
+
+const ipfs = ipfs_http_client.create({
+  host: 'ipfs.infura.io',
+  port: 5001, 
+  protocol: 'https'
+});
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -25,6 +33,7 @@ App = {
     }
     return App.initContract();
   },
+  
 
   initContract: function () {
     $.getJSON("/build/contracts/User.json", function (User) {

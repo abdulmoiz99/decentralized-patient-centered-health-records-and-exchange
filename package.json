@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Blockchain Todo List Powered By Ethereum",
   "main": "truffle-config.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
@@ -21,5 +22,8 @@
     "nodemon": "^1.17.3",
     "truffle": "5.0.2",
     "truffle-contract": "3.0.6"
+  },
+  "dependencies": {
+    "ipfs-http-client": "^56.0.0"
   }
 }
