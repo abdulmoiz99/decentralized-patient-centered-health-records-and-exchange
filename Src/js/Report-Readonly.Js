@@ -73,14 +73,45 @@ App = {
               });
 
               userInstance.getRoleId(accounts[0]).then(function (id) {
-                if (id == 1)
+                if (id == 1) 
+                {
                   document.getElementById("reports-link").style.display =
                     "none";
+
+                  reportInstance
+                    .getPatientReport(reportId)
+                    .then(function (report) {
+                      var date = new Date(report[4] * 1000);
+                      document.getElementById("title").textContent =
+                        report[0];
+                      document.getElementById("description").textContent =
+                        report[1];
+                      document.getElementById("dated").textContent = date;
+                      document.getElementsByClassName(
+                        "ql-editor"
+                      )[0].innerHTML = report[2];
+                    });
+                }
+                  
                 else if (id == 2) {
                   document.getElementById("hospitals-link").style.display =
                     "none";
                   document.getElementById("settings-link").style.display =
                     "none";
+
+                    reportInstance
+                      .getPatientReport(reportId)
+                      .then(function (report) {
+                        var date = new Date(report[4] * 1000);
+                        document.getElementById("title").textContent =
+                          report[0];
+                        document.getElementById("description").textContent =
+                          report[1];
+                        document.getElementById("dated").textContent = date;
+                        document.getElementsByClassName(
+                          "ql-editor"
+                        )[0].innerHTML = report[2];
+                      });
                 } else if (id == 3) {
                   reportInstance
                     .isPatientReport(reportId, accounts[0])
@@ -131,11 +162,6 @@ App = {
           });
       }
     });
-  },
-
-  getRandomColor: function () {
-    var colors = ["", " danger", " success", " warning"];
-    return colors[Math.floor(Math.random() * 4)];
   },
 };
 
