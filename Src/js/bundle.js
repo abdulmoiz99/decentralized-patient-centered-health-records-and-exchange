@@ -793,15 +793,15 @@ App = {
     const saveButton = document.querySelector('#createReport'); 
     //Loading start
     saveButton.textContent = 'Loading...';
-    saveButton.style.disabled = true;
+    saveButton.disabled = true;
 
-    ipfs.add(details[0].innerHTML).then(function(hash){
+    ipfs.add(details[0].innerHTML).then(function(hash) { 
     
       App.contracts.Report.deployed()
       .then(function (instance) {
         //Loading end
         saveButton.textContent = 'Save';
-        saveButton.style.disabled = false;
+        saveButton.disabled = false;
 
         return instance.createReport(
           title,

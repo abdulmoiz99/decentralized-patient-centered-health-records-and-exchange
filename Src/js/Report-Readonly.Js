@@ -73,35 +73,21 @@ App = {
               });
 
               userInstance.getRoleId(accounts[0]).then(function (id) {
-                if (id == 1) 
-                {
+                if (id == 1) {
                   document.getElementById("reports-link").style.display =
                     "none";
 
                   reportInstance
                     .getPatientReport(reportId)
                     .then(function (report) {
-                      var date = new Date(report[4] * 1000);
-                      document.getElementById("title").textContent =
-                        report[0];
-                      document.getElementById("description").textContent =
-                        report[1];
-                      document.getElementById("dated").textContent = date;
-                      document.getElementsByClassName(
-                        "ql-editor"
-                      )[0].innerHTML = report[2];
-                    });
-                }
-                  
-                else if (id == 2) {
-                  document.getElementById("hospitals-link").style.display =
-                    "none";
-                  document.getElementById("settings-link").style.display =
-                    "none";
-
-                    reportInstance
-                      .getPatientReport(reportId)
-                      .then(function (report) {
+                      var content = $.get(
+                        `https://ipfs.infura.io/ipfs/${report[2]}`,
+                        null,
+                        function (text) {
+                          $(text).find("#body");
+                        }
+                      );
+                      content.then(function (response) {
                         var date = new Date(report[4] * 1000);
                         document.getElementById("title").textContent =
                           report[0];
@@ -110,8 +96,37 @@ App = {
                         document.getElementById("dated").textContent = date;
                         document.getElementsByClassName(
                           "ql-editor"
-                        )[0].innerHTML = report[2];
+                        )[0].innerHTML = response;
                       });
+                    });
+                } else if (id == 2) {
+                  document.getElementById("hospitals-link").style.display =
+                    "none";
+                  document.getElementById("settings-link").style.display =
+                    "none";
+
+                  reportInstance
+                    .getPatientReport(reportId)
+                    .then(function (report) {
+                      var content = $.get(
+                        `https://ipfs.infura.io/ipfs/${report[2]}`,
+                        null,
+                        function (text) {
+                          $(text).find("#body");
+                        }
+                      );
+                      content.then(function (response) {
+                        var date = new Date(report[4] * 1000);
+                        document.getElementById("title").textContent =
+                          report[0];
+                        document.getElementById("description").textContent =
+                          report[1];
+                        document.getElementById("dated").textContent = date;
+                        document.getElementsByClassName(
+                          "ql-editor"
+                        )[0].innerHTML = response;
+                      });
+                    });
                 } else if (id == 3) {
                   reportInstance
                     .isPatientReport(reportId, accounts[0])
@@ -130,15 +145,24 @@ App = {
                         reportInstance
                           .getPatientReport(reportId)
                           .then(function (report) {
-                            var date = new Date(report[4] * 1000);
-                            document.getElementById("title").textContent =
-                              report[0];
-                            document.getElementById("description").textContent =
-                              report[1];
-                            document.getElementById("dated").textContent = date;
-                            document.getElementsByClassName(
-                              "ql-editor"
-                            )[0].innerHTML = report[2];
+                            var content = $.get(
+                              `https://ipfs.infura.io/ipfs/${report[2]}`,
+                              null,
+                              function (text) {
+                                $(text).find("#body");
+                              }
+                            );
+                            content.then(function (response) {
+                              var date = new Date(report[4] * 1000);
+                              document.getElementById("title").textContent =
+                                report[0];
+                              document.getElementById("description").textContent =
+                                report[1];
+                              document.getElementById("dated").textContent = date;
+                              document.getElementsByClassName(
+                                "ql-editor"
+                              )[0].innerHTML = response;
+                            });
                           });
                       }
                     });
