@@ -789,13 +789,24 @@ App = {
     var description = $("#Description").val();
     var details = document.getElementsByClassName("ql-editor");
     var patientAddress = $("#patientAddress").val();
+    
+    const saveButton = document.querySelector('#createReport'); 
+    //Loading start
+    saveButton.textContent = 'Loading...';
+    saveButton.style.disabled = true;
 
-    App.contracts.Report.deployed()
+    ipfs.add(details[0].innerHTML).then(function(hash){
+    
+      App.contracts.Report.deployed()
       .then(function (instance) {
+        //Loading end
+        saveButton.textContent = 'Save';
+        saveButton.style.disabled = false;
+
         return instance.createReport(
           title,
           description,
-          details[0].innerHTML,
+          hash.path,
           patientAddress,
           { from: App.account }
         );
@@ -808,6 +819,7 @@ App = {
       .catch(function (err) {
         console.error(err);
       });
+    })
   },
 
   render: async function () {
