@@ -52,6 +52,18 @@ App = {
     });
   },
 
+  download: function () {
+    console.log("hello");
+    var divContents = $("#editor").html();
+    var printWindow = window.open('', '', `height=${divContents.height},width=${divContents.width}`);
+    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    printWindow.document.write('</head><body >');
+    printWindow.document.write(divContents);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+  },
+
   render: async function () {
     var userInstance = await App.contracts.User.deployed();
     var patientInstance = await App.contracts.Patient.deployed();
@@ -97,6 +109,7 @@ App = {
                         document.getElementsByClassName(
                           "ql-editor"
                         )[0].innerHTML = response;
+                        document.getElementById("download").disabled = false;
                       });
                     });
                 } else if (id == 2) {
@@ -125,6 +138,7 @@ App = {
                         document.getElementsByClassName(
                           "ql-editor"
                         )[0].innerHTML = response;
+                        document.getElementById("download").disabled = false;
                       });
                     });
                 } else if (id == 3) {
@@ -162,6 +176,7 @@ App = {
                               document.getElementsByClassName(
                                 "ql-editor"
                               )[0].innerHTML = response;
+                              document.getElementById("download").disabled = false;
                             });
                           });
                       }
@@ -172,6 +187,7 @@ App = {
               userInstance.getUsername(accounts[0]).then(function (name) {
                 document.getElementById("nav-username").textContent = name;
               });
+
             } else {
               //Render another page;
               document.body.style = "background: #359AF2;";
