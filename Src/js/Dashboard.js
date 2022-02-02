@@ -39,6 +39,12 @@ App = {
       // Connect provider to interact with contract
       App.contracts.Patient.setProvider(App.web3Provider);
     });
+    $.getJSON("/build/contracts/Report.json", function (Report) {
+      // Instantiate a new truffle contract from the artifact
+      App.contracts.Report = TruffleContract(Report);
+      // Connect provider to interact with contract
+      App.contracts.Report.setProvider(App.web3Provider);
+    });
     // Load account data
     web3.eth.getCoinbase(function (err, account) {
       if (err === null) {
@@ -47,7 +53,72 @@ App = {
     });
   },
 
-  calculatePatientStatus: function (data) {
+  calculateReportsCreated: function (data) {
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var backgroundColor = "rgba(78, 115, 223, 0.05)";
+    var borderColor = "rgba(78, 115, 223, 1)";
+
+    var ctx = document.getElementById("reportsCreated");
+    App.statusChart = new Chart(ctx, {
+      type: "line", 
+      data: {
+        labels: months,
+        datasets: [
+          {
+            backgroundColor,
+            borderColor,
+            label: "Reports",
+            fill: true,
+            data,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                color: "rgb(234, 236, 244)",
+                zeroLineColor: "rgb(234, 236, 244)",
+                drawBorder: false,
+                drawTicks: false,
+                borderDash: [2],
+                zeroLineBorderDash: [2],
+                drawOnChartArea: false
+              },
+              ticks: {
+                fontColor: "#858796",
+                padding: 20
+              }
+            }
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: "rgb(234, 236, 244)",
+                zeroLineColor: "rgb(234, 236, 244)",
+                drawBorder: false,
+                drawTicks: false,
+                borderDash: [2],
+                zeroLineBorderDash: [2],
+                drawOnChartArea: false
+              },
+              ticks: {
+                fontColor: "#858796",
+                padding: 20
+              }
+            }
+          ]
+        }
+      },
+    });
+  },
+
+  calculatePatientsStatus: function (data) {
     var status = ["Healthy", "Sick", "Deceased"];
     var backgroundColor = ["#4e73df", "#1cc88a", "#36b9cc"];
     var borderColor = ["#ffffff", "#ffffff", "#ffffff"];
@@ -103,9 +174,32 @@ App = {
     });
   },
 
+  setGivenYears: function (stamp) {
+    var firstYear = new Date(stamp.toNumber() * 1000).getFullYear();
+    var currentYear = new Date().getFullYear();
+    const menu = document.getElementById("year-menu");
+    for (var i = currentYear; i >= firstYear; i--) {
+      menu.innerHTML += `<button id = "${i}" class="dropdown-item" onclick = "App.showReportsCreated('${i}')">&nbsp;${i}</a>`
+    }
+    menu.children[1].disabled = true;
+  },
+
+  showReportsCreated: function (year) {
+    const menu = document.getElementById("year-menu");
+
+    menu.childNodes.forEach(function(yearButton) {
+      if (yearButton.disabled) {
+        yearButton.disabled = false;
+      }
+    });
+
+    document.getElementById(String(year)).disabled = true;
+  },
+
   render: async function () {
     var patientInstance = await App.contracts.Patient.deployed();
     var userInstance = await App.contracts.User.deployed();
+    var reportInstance = await App.contracts.Report.deployed();
     web3.eth.getAccounts((err, accounts) => {
       if (!err) {
         var roles = [1, 2];
@@ -140,8 +234,12 @@ App = {
               web3.eth.getGasPrice(function (error, result) {
                 if (!error) $("#price").text(result + " wei");
               });
+              reportInstance.getFirstReportDate().then(function(stamp) {
+                App.setGivenYears(stamp);
+              })
+              App.calculateReportsCreated([100, 200, 300, 400, 500, 600, 500, 400, 300, 200, 100, 50]);
               patientInstance.getPatientStatus().then(function(data) {
-                App.calculatePatientStatus(data);
+                App.calculatePatientsStatus(data);
               });        
             } else {
               //Render another page;

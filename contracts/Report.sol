@@ -31,6 +31,26 @@ contract Report {
         return true;
     }
 
+    function getFirstReportDate() public view returns (uint) {
+        return Reports[0].dateCreated;
+    }
+
+    function getReportsByYear(uint min, uint max) public view returns (uint[] memory) {
+        uint count = 0;
+        for (uint i = 0; i < reportCount; i++) {
+            if (Reports[i].dateCreated > min && Reports[i].dateCreated < max) count++;
+        }
+        uint[] memory reportsTime = new uint[](count);
+        uint index = 0;
+        for (uint i = 0; i < reportCount; i++) {
+            if (Reports[i].dateCreated > min && Reports[i].dateCreated < max) {
+                reportsTime[index] = Reports[i].dateCreated;
+                index++;
+            }
+        }
+        return reportsTime;
+    }
+
     function isPatientReport(uint _id, address _patientAddress) public view returns (bool)
     {
         if (Reports[_id].patientAddress == _patientAddress) return true;

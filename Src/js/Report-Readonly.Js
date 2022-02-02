@@ -53,10 +53,9 @@ App = {
   },
 
   download: function () {
-    console.log("hello");
     var divContents = $("#editor").html();
     var printWindow = window.open('', '', `height=${divContents.height},width=${divContents.width}`);
-    printWindow.document.write('<html><head><title>DIV Contents</title>');
+    printWindow.document.write('<html><head><title>Print Document</title>');
     printWindow.document.write('</head><body >');
     printWindow.document.write(divContents);
     printWindow.document.write('</body></html>');
