@@ -4509,12 +4509,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x0CA229C27Bf940255A6A597cCff561EC2eC1fd9f",
-      "transactionHash": "0xf10479ba089bb23e4a3ef6c4e7d93d8b1b77b5fd7ecbc643383f0284eeaa6555"
+      "address": "0xbECb7c7AE96A18af8878c8aD0B0B1df1fc887dE7",
+      "transactionHash": "0x24ed567a9d98ebb58b3ac4b9edcfd51b5dcef5147e2ca78d694e6e8c34740d4b"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-29T16:53:25.051Z",
+  "updatedAt": "2022-02-02T10:03:17.943Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

@@ -77,6 +77,30 @@ contract Patient {
         return patientCount;
     }
 
+    function getPatientStatus() public view returns (uint, uint, uint) {
+        uint healthyCount = 0;
+        uint sickCount = 0;
+        uint deceasedCount = 0;
+
+        for (uint i = 0; i < patientCount; i++) 
+        {
+             if(keccak256(abi.encodePacked(Patients[i].status)) == keccak256(abi.encodePacked("Healthy")))
+             {
+                healthyCount++;
+             }
+             else if(keccak256(abi.encodePacked(Patients[i].status)) == keccak256(abi.encodePacked("Sick")))
+             {
+                 sickCount++;
+             }
+             else if(keccak256(abi.encodePacked(Patients[i].status)) == keccak256(abi.encodePacked("Deceased")))
+             {
+                 deceasedCount++;
+             }
+        }
+
+        return (healthyCount, sickCount, deceasedCount);
+    }
+
     function getPatientNameAddress(uint id) public view returns (string memory, address)
     {
         return (Patients[id].fullName, Patients[id].accountAddress);
