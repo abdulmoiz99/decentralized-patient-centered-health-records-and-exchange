@@ -10,6 +10,7 @@ contract Report {
         string details;
         address patientAddress;
         uint dateCreated;
+        address hospitalAddress;
     }
     uint reportCount = 0;
 
@@ -26,7 +27,7 @@ contract Report {
 
     function createReport(string memory _title, string memory _description, string memory _details, address _patientAddress) public  returns (bool)
     {
-        Reports[reportCount] = structReport(reportCount, _title, _description, _details, _patientAddress, block.timestamp);
+        Reports[reportCount] = structReport(reportCount, _title, _description, _details, _patientAddress, block.timestamp, msg.sender);
         reportCount ++;
         return true;
     }
@@ -52,5 +53,14 @@ contract Report {
 
     function getPatientReport(uint _id) public view returns (string memory, string memory, string memory, address, uint) {
         return (Reports[_id].title, Reports[_id].description, Reports[_id].details, Reports[_id].patientAddress, Reports[_id].dateCreated);
+    }
+
+    function getAllHospitalAddress() public view returns (address[] memory) {
+        address[] memory hospitalAddresses = new address[](reportCount);
+
+        for (uint i = 0; i < reportCount; i++) {
+             hospitalAddresses[i] = Reports[i].hospitalAddress;
+        }
+        return hospitalAddresses;
     } 
 }

@@ -56,13 +56,26 @@ App = {
   },
 
   calculateReportsCreated: function (data) {
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
     var backgroundColor = "rgba(78, 115, 223, 0.05)";
     var borderColor = "rgba(78, 115, 223, 1)";
 
     var ctx = document.getElementById("reportsCreated");
     App.reportsChart = new Chart(ctx, {
-      type: "line", 
+      type: "line",
       data: {
         labels: months,
         datasets: [
@@ -78,7 +91,7 @@ App = {
       options: {
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
         scales: {
           xAxes: [
@@ -90,13 +103,13 @@ App = {
                 drawTicks: false,
                 borderDash: [2],
                 zeroLineBorderDash: [2],
-                drawOnChartArea: false
+                drawOnChartArea: false,
               },
               ticks: {
                 fontColor: "#858796",
-                padding: 20
-              }
-            }
+                padding: 20,
+              },
+            },
           ],
           yAxes: [
             {
@@ -107,15 +120,15 @@ App = {
                 drawTicks: false,
                 borderDash: [2],
                 zeroLineBorderDash: [2],
-                drawOnChartArea: false
+                drawOnChartArea: false,
               },
               ticks: {
                 fontColor: "#858796",
-                padding: 20
-              }
-            }
-          ]
-        }
+                padding: 20,
+              },
+            },
+          ],
+        },
       },
     });
   },
@@ -127,7 +140,7 @@ App = {
 
     var ctx = document.getElementById("patientsStatus");
     App.statusChart = new Chart(ctx, {
-      type: "doughnut", 
+      type: "doughnut",
       data: {
         labels: status,
         datasets: [
@@ -142,16 +155,16 @@ App = {
       options: {
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
       },
     });
   },
 
-  changeChartType: function(type) {
+  changeChartType: function (type) {
     const menu = document.querySelector("#type-menu");
 
-    menu.childNodes.forEach(function(typeButton) {
+    menu.childNodes.forEach(function (typeButton) {
       if (typeButton.disabled) {
         typeButton.disabled = false;
       }
@@ -160,17 +173,17 @@ App = {
     document.getElementById(type).disabled = true;
 
     var tempData = App.statusChart.data;
-    
+
     App.statusChart.destroy();
 
     var ctx = document.getElementById("patientsStatus");
     App.statusChart = new Chart(ctx, {
-      type, 
+      type,
       data: tempData,
       options: {
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: false,
         },
       },
     });
@@ -180,7 +193,7 @@ App = {
     const menu = document.getElementById("year-menu");
     App.reportsChart.data.datasets[0].data = App.reportsData[year];
     App.reportsChart.update();
-    menu.childNodes.forEach(function(yearButton) {
+    menu.childNodes.forEach(function (yearButton) {
       if (yearButton.disabled) {
         yearButton.disabled = false;
       }
@@ -226,27 +239,72 @@ App = {
               );
               web3.eth.getGasPrice(function (error, result) {
                 if (!error) $("#price").text(result + " wei");
-              });             
-              
-              reportInstance.getAllReports().then(function(reports) {
+              });
+
+              reportInstance.getAllReports().then(function (reports) {
                 const menu = document.getElementById("year-menu");
-                reports.forEach(function(report) {
+                reports.forEach(function (report) {
                   var date = new Date(report.toNumber() * 1000);
                   var year = date.getFullYear();
                   if (App.reportsData[year] == undefined) {
-                    App.reportsData[year] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                    menu.innerHTML += `<button id = "${year}" class="dropdown-item" onclick = "App.showReportsCreated('${year}')">&nbsp;${year}</a>`
+                    App.reportsData[year] = [
+                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    ];
+                    menu.innerHTML += `<button id = "${year}" class="dropdown-item" onclick = "App.showReportsCreated('${year}')">&nbsp;${year}</a>`;
                   }
                   var monthIndex = date.getMonth();
                   App.reportsData[year][monthIndex]++;
                 });
-                menu.children[1].disabled = true;
-                App.calculateReportsCreated(App.reportsData[new Date().getFullYear()]);
+                if (menu.children.length > 1) menu.children[1].disabled = true;
+                App.calculateReportsCreated(
+                  App.reportsData[new Date().getFullYear()]
+                );
               });
 
-              patientInstance.getPatientStatus().then(function(data) {
+              reportInstance.getAllHospitalAddress().then(async function (addresses) {
+                var topReports = {};
+                addresses.forEach(function (address) {
+                  if (topReports[address] == undefined) {
+                    topReports[address] = 0;
+                  }
+                  topReports[address]++;
+                });
+
+                //Calculating Percentages and Ranking Top 5
+                var total = 0;
+                for (var address in topReports) total += topReports[address];
+                for (var address in topReports) {
+                  topReports[address] *= 100 / total;
+                  topReports[address] = Math.floor(topReports[address]);
+                }
+                const keys = Object.keys(topReports);
+                topReports.top5 = keys
+                  .sort((key1, key2) => topReports[key2] - topReports[key1])
+                  .slice(0, 5);
+
+                const topBody = document.getElementById("topReports");
+                for (var rank in topReports.top5) {
+                  var hospitalAddress = topReports.top5[rank]
+                  var percentage = topReports[hospitalAddress];
+                  var color;
+                  if (percentage < 17) color = "bg-secondary";
+                  else if (percentage >= 17 && percentage < 34) color = "bg-success";
+                  else if (percentage >= 34 && percentage < 51) color = "bg-info";
+                  else if (percentage >= 51 && percentage < 68) color = "bg-warning";
+                  else if (percentage >= 68 && percentage < 85) color = "bg-danger";
+                  else color = "";
+                  await userInstance.getUsername(hospitalAddress).then(function (name) {
+                    topBody.innerHTML += `<h4 class="small fw-bold">${name}<span class="float-end">${percentage}%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar ` + color + `" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${percentage}%;"><span class="visually-hidden">${percentage}%</span></div>
+                    </div>`;
+                  });
+                }
+              });
+
+              patientInstance.getPatientStatus().then(function (data) {
                 App.calculatePatientsStatus(data);
-              });        
+              });
             } else {
               //Render another page;
               document.body.style = "background: #359AF2;";
