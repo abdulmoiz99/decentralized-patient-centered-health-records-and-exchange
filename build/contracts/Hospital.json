@@ -19922,12 +19922,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xC8C9989fE55966011cebEfb47cB886c437649ebe",
-      "transactionHash": "0xe6f83e0aa5f2acacd085ed193657c35b5397f7aa4d020d19ea1b7aaf09f595c1"
+      "address": "0x4477689F1543dC96403845e632eE981F64c4C260",
+      "transactionHash": "0xfd88f820717adbc3f84be87571e109d880a51a79b424b29fc81b3ed2ed3fa6c2"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-02-02T11:10:53.340Z",
+  "updatedAt": "2022-02-02T14:26:33.094Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

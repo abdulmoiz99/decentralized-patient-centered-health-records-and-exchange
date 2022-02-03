@@ -3,6 +3,8 @@ App = {
   contracts: {},
   account: "0x0",
   statusChart: null,
+  reportsChart: null,
+  reportsData: {},
 
   init: async function () {
     return App.initWeb3();
@@ -59,7 +61,7 @@ App = {
     var borderColor = "rgba(78, 115, 223, 1)";
 
     var ctx = document.getElementById("reportsCreated");
-    App.statusChart = new Chart(ctx, {
+    App.reportsChart = new Chart(ctx, {
       type: "line", 
       data: {
         labels: months,
@@ -174,19 +176,10 @@ App = {
     });
   },
 
-  setGivenYears: function (stamp) {
-    var firstYear = new Date(stamp.toNumber() * 1000).getFullYear();
-    var currentYear = new Date().getFullYear();
-    const menu = document.getElementById("year-menu");
-    for (var i = currentYear; i >= firstYear; i--) {
-      menu.innerHTML += `<button id = "${i}" class="dropdown-item" onclick = "App.showReportsCreated('${i}')">&nbsp;${i}</a>`
-    }
-    menu.children[1].disabled = true;
-  },
-
   showReportsCreated: function (year) {
     const menu = document.getElementById("year-menu");
-
+    App.reportsChart.data.datasets[0].data = App.reportsData[year];
+    App.reportsChart.update();
     menu.childNodes.forEach(function(yearButton) {
       if (yearButton.disabled) {
         yearButton.disabled = false;
@@ -233,11 +226,24 @@ App = {
               );
               web3.eth.getGasPrice(function (error, result) {
                 if (!error) $("#price").text(result + " wei");
+              });             
+              
+              reportInstance.getAllReports().then(function(reports) {
+                const menu = document.getElementById("year-menu");
+                reports.forEach(function(report) {
+                  var date = new Date(report.toNumber() * 1000);
+                  var year = date.getFullYear();
+                  if (App.reportsData[year] == undefined) {
+                    App.reportsData[year] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                    menu.innerHTML += `<button id = "${year}" class="dropdown-item" onclick = "App.showReportsCreated('${year}')">&nbsp;${year}</a>`
+                  }
+                  var monthIndex = date.getMonth();
+                  App.reportsData[year][monthIndex]++;
+                });
+                menu.children[1].disabled = true;
+                App.calculateReportsCreated(App.reportsData[new Date().getFullYear()]);
               });
-              reportInstance.getFirstReportDate().then(function(stamp) {
-                App.setGivenYears(stamp);
-              })
-              App.calculateReportsCreated([100, 200, 300, 400, 500, 600, 500, 400, 300, 200, 100, 50]);
+
               patientInstance.getPatientStatus().then(function(data) {
                 App.calculatePatientsStatus(data);
               });        

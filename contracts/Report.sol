@@ -35,18 +35,11 @@ contract Report {
         return Reports[0].dateCreated;
     }
 
-    function getReportsByYear(uint min, uint max) public view returns (uint[] memory) {
-        uint count = 0;
+    function getAllReports() public view returns (uint[] memory) {
+        uint[] memory reportsTime = new uint[](reportCount);
+
         for (uint i = 0; i < reportCount; i++) {
-            if (Reports[i].dateCreated > min && Reports[i].dateCreated < max) count++;
-        }
-        uint[] memory reportsTime = new uint[](count);
-        uint index = 0;
-        for (uint i = 0; i < reportCount; i++) {
-            if (Reports[i].dateCreated > min && Reports[i].dateCreated < max) {
-                reportsTime[index] = Reports[i].dateCreated;
-                index++;
-            }
+             reportsTime[i] = Reports[i].dateCreated;
         }
         return reportsTime;
     }
