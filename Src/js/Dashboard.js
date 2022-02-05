@@ -5,6 +5,7 @@ App = {
   statusChart: null,
   reportsChart: null,
   reportsData: {},
+  todos: null,
 
   init: async function () {
     return App.initWeb3();
@@ -202,7 +203,81 @@ App = {
     document.getElementById(String(year)).disabled = true;
   },
 
+  deleteTodo: function (id) {
+    const deleteTodo = document.getElementById(id);
+    const todoMenu = document.getElementById('todo');
+    todoMenu.removeChild(deleteTodo.parentElement.parentElement);
+
+    for (var i = 0; i < App.todos.length; i++) {
+      if (App.todos[i].name == id) {
+        App.todos.splice(i, 1);
+        break;
+      }
+    }
+    localStorage.setItem("todos", JSON.stringify(App.todos));
+    App.updateTodoCard();
+  },
+
+  toggleCheck: function (id) {
+    for (var i = 0; i < App.todos.length; i++) {
+      if (App.todos[i].name == id) {
+        App.todos[i].completed = document.getElementById(id + " " + id).checked;
+        break;
+      }
+    }
+    localStorage.setItem("todos", JSON.stringify(App.todos));
+    App.updateTodoCard();
+  },
+
+  updateTodoCard: function () {
+    var completedCount = 0;
+    const todoPercentage = document.getElementById("todoText");
+    const todoBar = document.getElementById("todoBar");
+
+    if (App.todos.length == 0 || App.todos == undefined) {
+      todoPercentage.textContent = "100%";
+      todoBar.ariaValueNow = 100;
+      todoBar.style.width = "100%";
+      todoBar.children[0].textContent = "100%";
+      return;
+    } 
+    
+    for (var i = 0; i < App.todos.length; i++) {
+      if (App.todos[i].completed) completedCount++;
+    }
+
+    var value = Math.floor(completedCount/App.todos.length * 100);
+    todoPercentage.textContent = `${value}%`;
+    todoBar.ariaValueNow = value;
+    todoBar.style.width = `${value}%`;
+    todoBar.children[0].textContent = `${value}%`;
+  },
+
   render: async function () {
+    if (localStorage.getItem("todos")) {
+      App.todos = JSON.parse(localStorage.getItem("todos"));
+    } else {
+      App.todos = [];
+      localStorage.setItem("todos", JSON.stringify(App.todos));
+    }
+
+    const todoMenu = document.getElementById("todo");
+
+    for (var i = 0; i < App.todos.length; i++) {
+      todoMenu.innerHTML += `<li class="list-group-item">
+      <div class="row align-items-center no-gutters">
+          <div class="col me-2" ondblclick="App.deleteTodo('${App.todos[i].name}')" id = "${App.todos[i].name}">
+              <h6 class="mb-0"><strong>${App.todos[i].name}</strong></h6><span class="text-xs">${App.todos[i].time}</span>
+          </div>
+          <div class="col-auto">
+            <div class="form-check"><input ${App.todos[i].completed ? "checked" : ""} class="form-check-input" id = "${App.todos[i].name} ${App.todos[i].name}" onchange = "App.toggleCheck('${App.todos[i].name}')" type="checkbox"><label class="form-check-label"></label></div>
+          </div>
+      </div>
+  </li>`;
+    }
+
+    App.updateTodoCard();
+
     var patientInstance = await App.contracts.Patient.deployed();
     var userInstance = await App.contracts.User.deployed();
     var reportInstance = await App.contracts.Report.deployed();
@@ -261,46 +336,57 @@ App = {
                 );
               });
 
-              reportInstance.getAllHospitalAddress().then(async function (addresses) {
-                var topReports = {};
-                addresses.forEach(function (address) {
-                  if (topReports[address] == undefined) {
-                    topReports[address] = 0;
-                  }
-                  topReports[address]++;
-                });
-
-                //Calculating Percentages and Ranking Top 5
-                var total = 0;
-                for (var address in topReports) total += topReports[address];
-                for (var address in topReports) {
-                  topReports[address] *= 100 / total;
-                  topReports[address] = Math.floor(topReports[address]);
-                }
-                const keys = Object.keys(topReports);
-                topReports.top5 = keys
-                  .sort((key1, key2) => topReports[key2] - topReports[key1])
-                  .slice(0, 5);
-
-                const topBody = document.getElementById("topReports");
-                for (var rank in topReports.top5) {
-                  var hospitalAddress = topReports.top5[rank]
-                  var percentage = topReports[hospitalAddress];
-                  var color;
-                  if (percentage < 17) color = "bg-secondary";
-                  else if (percentage >= 17 && percentage < 34) color = "bg-success";
-                  else if (percentage >= 34 && percentage < 51) color = "bg-info";
-                  else if (percentage >= 51 && percentage < 68) color = "bg-warning";
-                  else if (percentage >= 68 && percentage < 85) color = "bg-danger";
-                  else color = "";
-                  await userInstance.getUsername(hospitalAddress).then(function (name) {
-                    topBody.innerHTML += `<h4 class="small fw-bold">${name}<span class="float-end">${percentage}%</span></h4>
-                    <div class="progress mb-4">
-                        <div class="progress-bar ` + color + `" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${percentage}%;"><span class="visually-hidden">${percentage}%</span></div>
-                    </div>`;
+              reportInstance
+                .getAllHospitalAddress()
+                .then(async function (addresses) {
+                  var topReports = {};
+                  addresses.forEach(function (address) {
+                    if (topReports[address] == undefined) {
+                      topReports[address] = 0;
+                    }
+                    topReports[address]++;
                   });
-                }
-              });
+
+                  //Calculating Percentages and Ranking Top 5
+                  var total = 0;
+                  for (var address in topReports) total += topReports[address];
+                  for (var address in topReports) {
+                    topReports[address] *= 100 / total;
+                    topReports[address] = Math.floor(topReports[address]);
+                  }
+                  const keys = Object.keys(topReports);
+                  topReports.top5 = keys
+                    .sort((key1, key2) => topReports[key2] - topReports[key1])
+                    .slice(0, 5);
+
+                  const topBody = document.getElementById("topReports");
+                  for (var rank in topReports.top5) {
+                    var hospitalAddress = topReports.top5[rank];
+                    var percentage = topReports[hospitalAddress];
+                    var color;
+                    if (percentage < 17) color = "bg-secondary";
+                    else if (percentage >= 17 && percentage < 34)
+                      color = "bg-success";
+                    else if (percentage >= 34 && percentage < 51)
+                      color = "bg-info";
+                    else if (percentage >= 51 && percentage < 68)
+                      color = "bg-warning";
+                    else if (percentage >= 68 && percentage < 85)
+                      color = "bg-danger";
+                    else color = "";
+                    await userInstance
+                      .getUsername(hospitalAddress)
+                      .then(function (name) {
+                        topBody.innerHTML +=
+                          `<h4 class="small fw-bold">${name}<span class="float-end">${percentage}%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar ` +
+                          color +
+                          `" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${percentage}%;"><span class="visually-hidden">${percentage}%</span></div>
+                    </div>`;
+                      });
+                  }
+                });
 
               patientInstance.getPatientStatus().then(function (data) {
                 App.calculatePatientsStatus(data);
@@ -321,6 +407,42 @@ App = {
     });
   },
 };
+
+$("#address").on("keyup", function (e) {
+  if (e.key === "Enter" || e.keyCode === 13) {
+    for (var i = 0; i < App.todos.length; i++) {
+      if (App.todos[i].name == $("#address").val()) {
+        alert("Todo already exists!");
+        return;
+      }
+    }
+
+    const todoInstance = {
+      name: $("#address").val(),
+      time: new Date().toLocaleString(),
+      completed: false,
+    };
+
+    $('#address').val('');
+
+    App.todos.push(todoInstance);
+    localStorage.setItem("todos", JSON.stringify(App.todos));
+
+    App.updateTodoCard();
+
+    document.getElementById("todo").innerHTML += `<li class="list-group-item">
+      <div class="row align-items-center no-gutters">
+          <div class="col me-2" ondblclick="App.deleteTodo('${todoInstance.name}')" id = "${todoInstance.name}">
+              <h6 class="mb-0"><strong>${todoInstance.name}</strong></h6><span class="text-xs">${todoInstance.time}</span>
+          </div>
+          <div class="col-auto">
+              <div class="form-check"><input ${todoInstance.completed ? "checked" : ""} class="form-check-input" id = "${todoInstance.name} ${todoInstance.name}" onchange = "App.toggleCheck('${todoInstance.name}')" type="checkbox"><label class="form-check-label"></label></div>
+          </div>
+      </div>
+  </li>`;
+
+  }
+});
 
 $(function () {
   $(window).load(function () {
