@@ -888,6 +888,9 @@ form.addEventListener("submit", (event) => {
   App.addReport();
 });
 
+ethereum.on('accountsChanged', function () {
+  location.reload();
+})
 },{"ipfs-http-client":133}],5:[function(require,module,exports){
 'use strict';
 

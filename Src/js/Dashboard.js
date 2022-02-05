@@ -51,7 +51,17 @@ App = {
     // Load account data
     web3.eth.getCoinbase(function (err, account) {
       if (err === null) {
-        App.account = account;
+        if (account == null) {
+          document.body.style = "background: #359AF2;";
+          document.body.innerHTML = `<section class="login-clean" style="background: #359AF2;">
+      <div class="logo" style="text-align: center;"><i class="fa fa-heartbeat" style="font-size: 40px;color: rgb(255,255,255);text-align: left;margin-left: 0px;margin-right: 5px;"></i><label class="form-label" style="color: rgb(255,255,255);font-size: 35px;margin-left: 5px;">MyApp</label></div>
+      <form id = "login" style="border-radius: 25px;box-shadow: 0px 4px 4px rgba(0,0,0,0.25);max-width: 450px;margin-top: 30px;">
+          <p class="text-center" style="color: #0F2440;">You are not logged in to Web3. Please sign in with a registered account in MetaMask and click Reload.</p>  
+          <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100" type="submit" style="border-radius: 25px;background: #2E83F2;margin-top: 40px;" onClick="window.location.reload();">Reload</button></div>
+      </form>
+  </section>`;
+        }
+        else App.account = account;
       }
     });
   },
@@ -205,7 +215,7 @@ App = {
 
   deleteTodo: function (id) {
     const deleteTodo = document.getElementById(id);
-    const todoMenu = document.getElementById('todo');
+    const todoMenu = document.getElementById("todo");
     todoMenu.removeChild(deleteTodo.parentElement.parentElement);
 
     for (var i = 0; i < App.todos.length; i++) {
@@ -240,13 +250,13 @@ App = {
       todoBar.style.width = "100%";
       todoBar.children[0].textContent = "100%";
       return;
-    } 
-    
+    }
+
     for (var i = 0; i < App.todos.length; i++) {
       if (App.todos[i].completed) completedCount++;
     }
 
-    var value = Math.floor(completedCount/App.todos.length * 100);
+    var value = Math.floor((completedCount / App.todos.length) * 100);
     todoPercentage.textContent = `${value}%`;
     todoBar.ariaValueNow = value;
     todoBar.style.width = `${value}%`;
@@ -266,11 +276,21 @@ App = {
     for (var i = 0; i < App.todos.length; i++) {
       todoMenu.innerHTML += `<li class="list-group-item">
       <div class="row align-items-center no-gutters">
-          <div class="col me-2" ondblclick="App.deleteTodo('${App.todos[i].name}')" id = "${App.todos[i].name}">
-              <h6 class="mb-0"><strong>${App.todos[i].name}</strong></h6><span class="text-xs">${App.todos[i].time}</span>
+          <div class="col me-2" ondblclick="App.deleteTodo('${
+            App.todos[i].name
+          }')" id = "${App.todos[i].name}">
+              <h6 class="mb-0"><strong>${
+                App.todos[i].name
+              }</strong></h6><span class="text-xs">${App.todos[i].time}</span>
           </div>
           <div class="col-auto">
-            <div class="form-check"><input ${App.todos[i].completed ? "checked" : ""} class="form-check-input" id = "${App.todos[i].name} ${App.todos[i].name}" onchange = "App.toggleCheck('${App.todos[i].name}')" type="checkbox"><label class="form-check-label"></label></div>
+            <div class="form-check"><input ${
+              App.todos[i].completed ? "checked" : ""
+            } class="form-check-input" id = "${App.todos[i].name} ${
+        App.todos[i].name
+      }" onchange = "App.toggleCheck('${
+        App.todos[i].name
+      }')" type="checkbox"><label class="form-check-label"></label></div>
           </div>
       </div>
   </li>`;
@@ -423,7 +443,7 @@ $("#address").on("keyup", function (e) {
       completed: false,
     };
 
-    $('#address').val('');
+    $("#address").val("");
 
     App.todos.push(todoInstance);
     localStorage.setItem("todos", JSON.stringify(App.todos));
@@ -432,15 +452,24 @@ $("#address").on("keyup", function (e) {
 
     document.getElementById("todo").innerHTML += `<li class="list-group-item">
       <div class="row align-items-center no-gutters">
-          <div class="col me-2" ondblclick="App.deleteTodo('${todoInstance.name}')" id = "${todoInstance.name}">
-              <h6 class="mb-0"><strong>${todoInstance.name}</strong></h6><span class="text-xs">${todoInstance.time}</span>
+          <div class="col me-2" ondblclick="App.deleteTodo('${
+            todoInstance.name
+          }')" id = "${todoInstance.name}">
+              <h6 class="mb-0"><strong>${
+                todoInstance.name
+              }</strong></h6><span class="text-xs">${todoInstance.time}</span>
           </div>
           <div class="col-auto">
-              <div class="form-check"><input ${todoInstance.completed ? "checked" : ""} class="form-check-input" id = "${todoInstance.name} ${todoInstance.name}" onchange = "App.toggleCheck('${todoInstance.name}')" type="checkbox"><label class="form-check-label"></label></div>
+              <div class="form-check"><input ${
+                todoInstance.completed ? "checked" : ""
+              } class="form-check-input" id = "${todoInstance.name} ${
+      todoInstance.name
+    }" onchange = "App.toggleCheck('${
+      todoInstance.name
+    }')" type="checkbox"><label class="form-check-label"></label></div>
           </div>
       </div>
   </li>`;
-
   }
 });
 
@@ -449,4 +478,8 @@ $(function () {
     App.init();
     setTimeout(() => App.render(), 500);
   });
+});
+
+ethereum.on("accountsChanged", function () {
+  location.reload();
 });

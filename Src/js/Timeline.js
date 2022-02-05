@@ -47,7 +47,17 @@ App = {
     // Load account data
     web3.eth.getCoinbase(function (err, account) {
       if (err === null) {
-        App.account = account;
+        if (account == null) {
+          document.body.style = "background: #359AF2;";
+          document.body.innerHTML = `<section class="login-clean" style="background: #359AF2;">
+      <div class="logo" style="text-align: center;"><i class="fa fa-heartbeat" style="font-size: 40px;color: rgb(255,255,255);text-align: left;margin-left: 0px;margin-right: 5px;"></i><label class="form-label" style="color: rgb(255,255,255);font-size: 35px;margin-left: 5px;">MyApp</label></div>
+      <form id = "login" style="border-radius: 25px;box-shadow: 0px 4px 4px rgba(0,0,0,0.25);max-width: 450px;margin-top: 30px;">
+          <p class="text-center" style="color: #0F2440;">You are not logged in to Web3. Please sign in with a registered account in MetaMask and click Reload.</p>  
+          <div class="mb-3"><button class="btn btn-primary shadow-sm d-block w-100" type="submit" style="border-radius: 25px;background: #2E83F2;margin-top: 40px;" onClick="window.location.reload();">Reload</button></div>
+      </form>
+  </section>`;
+        }
+        else App.account = account;
       }
     });
   },
@@ -194,3 +204,7 @@ $(function () {
     setTimeout(() => App.render(), 500);
   });
 });
+
+ethereum.on('accountsChanged', function () {
+  location.reload();
+})
